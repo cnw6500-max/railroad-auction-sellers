@@ -58,6 +58,8 @@
   .hero { background: var(--navy); color: #fff; padding: 110px 0 96px; }
   .hero h1 { font-size: clamp(2.4rem, 7vw, 4.4rem); font-weight: 700; }
   .hero .lede { font-size: clamp(1.05rem, 2vw, 1.3rem); color: #e4e9f8; max-width: 720px; }
+  .hero-link { display: inline-block; margin: 24px 0 0 18px; color: #fff; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+  .hero-link:hover { color: var(--gold); }
   .hero .small { font-size: .85rem; color: #c2cbe8; margin-top: 36px; }
   .btn {
     display: inline-block; margin-top: 24px; background: var(--gold); color: var(--navy-dark);
@@ -80,6 +82,21 @@
   .plan.featured { border: 2px solid var(--navy); }
   .founding-eyebrow { color: #b07a12; }
   .card.offer { border: 2px solid var(--gold); }
+  /* about */
+  .about { display: grid; grid-template-columns: 120px minmax(0, 760px); gap: 36px; align-items: start; }
+  .about-mark {
+    width: 120px; height: 120px; border-radius: 50%; background: var(--navy); color: #fff;
+    display: grid; place-items: center; font-size: 2.4rem; font-weight: 700; border: 4px solid var(--gold);
+  }
+  .about-eyebrow { color: #b07a12; }
+  #buyers .split { margin-top: 8px; }
+  form.buyer-form { border: 1px solid var(--line); }
+  .plain-list { padding-left: 20px; margin: 0; }
+  .plain-list li { margin-bottom: 10px; }
+  .limit-pill {
+    display: inline-block; background: #fff6e0; border: 1px solid var(--gold); color: #6b4a0a;
+    font-weight: 700; font-size: .92rem; padding: 7px 14px; border-radius: 999px; margin: 4px 0 22px;
+  }
   .card.offer .big { color: var(--navy); }
   .card.offer .big span { font-size: 1rem; color: var(--muted); font-weight: 400; }
 
@@ -231,11 +248,14 @@
     .compare, .plans, .split, .feature, .grid3, form.interest, .calc { grid-template-columns: 1fr; }
     .calc-inputs { padding: 18px; }
     .badge-box { grid-template-columns: 1fr; padding: 20px; gap: 16px; }
+    .about { grid-template-columns: 1fr; gap: 16px; }
+    .about-mark { width: 84px; height: 84px; font-size: 1.7rem; }
     .badge-box > img { width: 160px; height: 160px; }
     form.interest { padding: 20px; }
     .feature.flip > :first-child { order: 0; }
     nav ul { display: none; }
     .hero { padding: 72px 0 64px; }
+    .hero-link { display: block; margin: 18px 0 0; }
   }
 </style>
 </head>
@@ -251,6 +271,7 @@
       <li><a href="#founding">Founding offer</a></li>
       <li><a href="#site">The site</a></li>
       <li><a href="#paid">Getting paid</a></li>
+      <li><a href="#about">About</a></li>
       <li><a href="#join">Contact</a></li>
     </ul>
   </div>
@@ -262,6 +283,7 @@
     <h1>Sell your slides.<br>Keep the commission.</h1>
     <p class="lede">An auction site built only for railroad slides, negatives and prints, with a flat monthly plan in place of a cut of every sale.</p>
     <a class="btn" href="#join">Register your interest</a>
+    <a class="hero-link" href="#buyers">Collector? Get notified when it opens →</a>
     <p class="small">A walk-through for sellers · Screens show sample listings</p>
   </div>
 </header>
@@ -663,6 +685,7 @@
     <p class="eyebrow founding-eyebrow">Founding sellers</p>
     <h2>Pay for a year up front, get a third off</h2>
     <p>The first sellers to join can lock in a year of a paid plan at a founding price. It helps cover the cost of opening the site, and it is the lowest price the plans will ever be.</p>
+    <p class="limit-pill">Only 50 founding places. When they are taken, the offer ends.</p>
     <div class="compare">
       <div class="card offer">
         <div class="label">Founding Collector</div>
@@ -703,7 +726,7 @@
         </div>
       </div>
     </div>
-    <p class="note">Founding offers are limited to the first group of sellers. The first year starts on the day the site opens. If the site does not open, nothing is charged. Please display the badge only once your founding plan is confirmed.</p>
+    <p class="note">Founding offers are limited to the first 50 sellers, in the order their founding plan is confirmed. The first year starts on the day the site opens. If the site does not open, nothing is charged. Please display the badge only once your founding plan is confirmed.</p>
   </div>
 </section>
 
@@ -732,6 +755,20 @@
     });
   })();
 </script>
+
+<!-- About -->
+<section id="about" class="alt">
+  <div class="wrap about">
+    <div class="about-mark" aria-hidden="true">RDM</div>
+    <div>
+      <p class="eyebrow about-eyebrow">Who's behind it</p>
+      <h2>Hi, I'm Ron Minor.</h2>
+      <p>I've collected railroad slides for 35 years, mostly Burlington Northern, Chicago &amp; North Western, Union Pacific and BNSF across the Midwest. I live in Joplin, Missouri.</p>
+      <p>I built this site because selling $5 and $10 slides on general auction sites means giving up a big share of every sale in fees, and good railroad material gets lost among everything else. I wanted a marketplace made only for our hobby, where sellers keep what they earn and collectors can find exactly the road, era and location they are after.</p>
+      <p>Questions or ideas? Use the form below. I read every message myself.</p>
+    </div>
+  </div>
+</section>
 
 <!-- Joining -->
 <section id="join" class="join">
@@ -806,7 +843,7 @@
         <ul>
           <li>We reply by email with the opening date and how to set up your seller account.</li>
           <li>Everyone starts on the free Starter plan with up to 50 listings a month, and moves up only if it works for them.</li>
-          <li>If you chose a founding offer, we confirm it by email before anything is charged.</li>
+          <li>If you chose a founding offer, we confirm it by email before anything is charged. Founding places go to the first 50 sellers.</li>
           <li>No payment details are needed to register interest.</li>
         </ul>
       </div>
@@ -836,6 +873,7 @@
       var sells = data.getAll("sells");
       data.delete("sells");
       data.append("sells", sells.join(", "));
+      data.append("interest_type", "Seller");
       data.append("_subject", "Seller interest: " + name.value.trim());
 
       button.disabled = true;
@@ -847,6 +885,85 @@
         form.reset();
         show("Thank you. We have your details and will be in touch before opening day.", "ok");
         if (window.umami) umami.track("Interest form sent", { plan: data.get("plan") || "Not sure", founding: data.get("founding_offer") || "No" });
+      }).catch(function () {
+        show("Sorry, that did not send. Please try again in a moment.", "err");
+      }).then(function () { button.disabled = false; });
+    });
+  })();
+</script>
+
+<!-- Buyers -->
+<section id="buyers">
+  <div class="wrap">
+    <p class="eyebrow about-eyebrow">For collectors</p>
+    <h2>Buying, not selling? Get told when it opens.</h2>
+    <div class="split">
+      <form class="interest buyer-form" id="buyer-form" novalidate>
+        <div>
+          <label for="b-email">Email</label>
+          <input type="email" id="b-email" name="email" autocomplete="email" required>
+        </div>
+        <div>
+          <label for="b-name">Name <span class="opt">(optional)</span></label>
+          <input type="text" id="b-name" name="name" autocomplete="name">
+        </div>
+        <div class="full">
+          <label for="b-roads">Railroads or regions you collect <span class="opt">(optional)</span></label>
+          <input type="text" id="b-roads" name="railroads" placeholder="e.g. Pennsy, Northern Pacific, New England">
+        </div>
+        <fieldset class="full">
+          <legend>What do you collect?</legend>
+          <div class="checks">
+            <label><input type="checkbox" name="collects" value="Slides"> Slides</label>
+            <label><input type="checkbox" name="collects" value="Negatives"> Negatives</label>
+            <label><input type="checkbox" name="collects" value="Prints"> Prints</label>
+          </div>
+        </fieldset>
+        <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button type="submit" class="full">Notify me</button>
+        <p class="form-status full" id="buyer-status" role="status" aria-live="polite"></p>
+      </form>
+      <div>
+        <h3>What you get</h3>
+        <ul class="plain-list">
+          <li>One email when the site opens. No newsletter, no sharing your address.</li>
+          <li>Bidding is always free for buyers.</li>
+          <li>Tell us your railroads and we will point you to their pages on day one.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    var form = document.getElementById("buyer-form");
+    var status = document.getElementById("buyer-status");
+    var button = form.querySelector("button");
+
+    function show(msg, kind) { status.textContent = msg; status.className = "form-status full " + kind; }
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var email = form.elements.email;
+      if (!email.validity.valid || !email.value.trim()) { show("Please enter a valid email address.", "err"); email.focus(); return; }
+
+      var data = new FormData(form);
+      var collects = data.getAll("collects");
+      data.delete("collects");
+      data.append("collects", collects.join(", "));
+      data.append("interest_type", "Buyer");
+      data.append("_subject", "Buyer interest: " + email.value.trim());
+
+      button.disabled = true;
+      show("Sending…", "");
+      fetch("https://formspree.io/f/" + FORMSPREE_ID, {
+        method: "POST", body: data, headers: { Accept: "application/json" }
+      }).then(function (r) {
+        if (!r.ok) throw new Error();
+        form.reset();
+        show("Thank you. We will email you when the site opens.", "ok");
+        if (window.umami) umami.track("Buyer sign-up");
       }).catch(function () {
         show("Sorry, that did not send. Please try again in a moment.", "err");
       }).then(function () { button.disabled = false; });
