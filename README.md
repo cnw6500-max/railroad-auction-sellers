@@ -46,6 +46,7 @@ Files with the same name are replaced; nothing else in the repository is touched
 
 ## Settings you may want to change later (in `index.html`)
 
+- **Visitor counter:** Umami Cloud, script near the top of `index.html` (`data-website-id="5f79…"`). See visits and events (Interest form sent, Calculator used, Badge download, Badge code copied) at https://cloud.umami.is. It only counts visits on `cnw6500-max.github.io`.
 - **Formspree form:** `var FORMSPREE_ID = "mrpppzpp";` — entries go to the email on that Formspree form.
 - **Badge link address:** `var SITE_URL = "..."` — the address the badge codes link to. Change it if the site moves to its own web address.
 - **Fee rates for the calculator:** the `var FEES = { ... }` block. Each rate has a comment saying what it is.

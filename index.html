@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Railroad Collectibles Auction – For Sellers</title>
 <meta name="description" content="An auction site built only for railroad slides, negatives and prints, with a flat monthly plan in place of a cut of every sale.">
+<!-- Visitor counter: Umami Cloud (cookie-free). Dashboard at https://cloud.umami.is -->
+<script defer src="https://cloud.umami.is/script.js" data-website-id="5f7910ae-1b97-40fc-9461-1447aa01fc8d" data-domains="cnw6500-max.github.io"></script>
 <style>
   :root {
     --navy: #1f3a8f;
@@ -533,7 +535,9 @@
       }
     }
 
-    ids.forEach(function (k) { el[k].addEventListener("input", update); el[k].addEventListener("change", update); });
+    var tracked = false;
+    function used() { if (!tracked && window.umami) { tracked = true; umami.track("Calculator used"); } }
+    ids.forEach(function (k) { el[k].addEventListener("input", update); el[k].addEventListener("change", update); el[k].addEventListener("change", used); });
     $("c-reset").addEventListener("click", function () {
       ids.forEach(function (k) { el[k].value = defaults[k]; });
       update();
@@ -679,22 +683,22 @@
         <h3>The Founding Seller badge</h3>
         <p>Founding sellers get this badge on their seller page and every listing. Show it on your own profiles too: on forums, club and historical society pages, your website or your email signature.</p>
         <div class="badge-downloads">
-          <a href="images/founding-seller-badge-400.png" download>Download PNG, large</a>
-          <a href="images/founding-seller-badge-150.png" download>Download PNG, small</a>
-          <a href="images/founding-seller-badge.svg" download>Download SVG</a>
+          <a href="images/founding-seller-badge-400.png" download data-umami-event="Badge download" data-umami-event-file="PNG large">Download PNG, large</a>
+          <a href="images/founding-seller-badge-150.png" download data-umami-event="Badge download" data-umami-event-file="PNG small">Download PNG, small</a>
+          <a href="images/founding-seller-badge.svg" download data-umami-event="Badge download" data-umami-event-file="SVG">Download SVG</a>
         </div>
         <div class="embed">
           <label for="embed-html">For a website or profile that accepts HTML</label>
           <div class="embed-row">
             <input type="text" id="embed-html" readonly>
-            <button type="button" data-copy="embed-html">Copy</button>
+            <button type="button" data-copy="embed-html" data-umami-event="Badge code copied" data-umami-event-type="HTML">Copy</button>
           </div>
         </div>
         <div class="embed">
           <label for="embed-bb">For forums that use BBCode</label>
           <div class="embed-row">
             <input type="text" id="embed-bb" readonly>
-            <button type="button" data-copy="embed-bb">Copy</button>
+            <button type="button" data-copy="embed-bb" data-umami-event="Badge code copied" data-umami-event-type="BBCode">Copy</button>
           </div>
         </div>
       </div>
@@ -842,6 +846,7 @@
         if (!r.ok) throw new Error();
         form.reset();
         show("Thank you. We have your details and will be in touch before opening day.", "ok");
+        if (window.umami) umami.track("Interest form sent", { plan: data.get("plan") || "Not sure", founding: data.get("founding_offer") || "No" });
       }).catch(function () {
         show("Sorry, that did not send. Please try again in a moment.", "err");
       }).then(function () { button.disabled = false; });
