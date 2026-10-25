@@ -76,6 +76,10 @@
   .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
   .plan { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 28px; }
   .plan.featured { border: 2px solid var(--navy); }
+  .founding-eyebrow { color: #b07a12; }
+  .card.offer { border: 2px solid var(--gold); }
+  .card.offer .big { color: var(--navy); }
+  .card.offer .big span { font-size: 1rem; color: var(--muted); font-weight: 400; }
   .plan h3 { color: var(--navy); margin-bottom: 6px; }
   .plan .price { font-size: 2.6rem; font-weight: 700; margin: 4px 0 12px; }
   .plan .price span { font-size: 1rem; color: var(--muted); font-weight: 400; }
@@ -92,6 +96,40 @@
   td.num, th.num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
   thead th { background: var(--head); }
   tr.total td { background: var(--head); font-weight: 700; }
+
+  /* savings calculator */
+  #calculator { border-top: 1px solid var(--line); }
+  .calc { display: grid; grid-template-columns: 1fr 1.1fr; gap: 28px; align-items: start; }
+  .calc-inputs {
+    background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 24px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 14px 16px;
+  }
+  .calc-inputs .full { grid-column: 1 / -1; }
+  .calc-inputs label { display: block; font-weight: 600; font-size: .88rem; margin-bottom: 5px; }
+  .calc-inputs .hint { display: block; font-weight: 400; font-size: .78rem; color: var(--muted); margin-top: 4px; }
+  .money { position: relative; }
+  .money::before { content: "$"; position: absolute; left: 11px; top: 50%; transform: translateY(-50%); color: var(--muted); }
+  .money input { padding-left: 24px !important; }
+  .pct { position: relative; }
+  .pct::after { content: "%"; position: absolute; right: 11px; top: 50%; transform: translateY(-50%); color: var(--muted); }
+  .calc-inputs input, .calc-inputs select {
+    width: 100%; font: inherit; font-size: 1rem; color: var(--ink); background: #fff;
+    border: 1px solid #c4cada; border-radius: 6px; padding: 9px 11px;
+  }
+  .calc-inputs input:focus, .calc-inputs select:focus { outline: 2px solid var(--navy); outline-offset: 1px; border-color: var(--navy); }
+  .calc-reset {
+    font: inherit; font-size: .88rem; background: none; border: 0; color: var(--navy);
+    text-decoration: underline; cursor: pointer; padding: 0; justify-self: start;
+  }
+  .calc-results { display: grid; gap: 16px; }
+  .savings { background: var(--navy); color: #fff; border-radius: 10px; padding: 24px; }
+  .savings .label { color: #c9d2ee; font-weight: 600; }
+  .savings .big { color: #fff; margin: 4px 0 6px; font-variant-numeric: tabular-nums; }
+  .savings .big span { font-size: 1.1rem; font-weight: 600; color: #c9d2ee; }
+  .savings .sub { color: var(--gold); font-weight: 700; font-size: 1.1rem; }
+  .savings.neg .big { color: #ffd2c8; }
+  .calc-warn { background: #fff6e0; border-left: 4px solid var(--gold); padding: 12px 16px; border-radius: 6px; font-size: .92rem; margin: 0; }
+  .calc-warn[hidden] { display: none; }
 
   /* feature with screenshot */
   .feature { display: grid; grid-template-columns: 1fr 1.35fr; gap: 44px; align-items: center; }
@@ -122,9 +160,40 @@
   .join { background: var(--navy); color: #fff; }
   .join h2 { font-size: clamp(1.9rem, 4.5vw, 3rem); }
   .join p { color: #e4e9f8; max-width: 720px; }
-  .join dl { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 36px 0 0; }
-  .join dt { color: var(--gold); font-size: .8rem; text-transform: uppercase; letter-spacing: .1em; font-weight: 700; }
-  .join dd { margin: 4px 0 0; font-size: 1.05rem; }
+  .join .split { margin-top: 12px; }
+  .join h3 { color: var(--gold); }
+  .join ul { padding-left: 20px; margin: 0; color: #e4e9f8; }
+  .join li { margin-bottom: 10px; }
+
+  /* interest form */
+  form.interest {
+    background: var(--card); color: var(--ink); border-radius: 10px; padding: 28px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px 18px;
+  }
+  form.interest .full { grid-column: 1 / -1; }
+  form.interest label { display: block; font-weight: 600; font-size: .9rem; margin-bottom: 6px; }
+  form.interest .opt { font-weight: 400; color: var(--muted); }
+  form.interest input[type=text], form.interest input[type=email], form.interest select, form.interest textarea {
+    width: 100%; font: inherit; font-size: 1rem; color: var(--ink); background: #fff;
+    border: 1px solid #c4cada; border-radius: 6px; padding: 10px 12px;
+  }
+  form.interest textarea { min-height: 110px; resize: vertical; }
+  form.interest input:focus, form.interest select:focus, form.interest textarea:focus {
+    outline: 2px solid var(--navy); outline-offset: 1px; border-color: var(--navy);
+  }
+  form.interest fieldset { border: 0; padding: 0; margin: 0; }
+  form.interest legend { font-weight: 600; font-size: .9rem; margin-bottom: 6px; padding: 0; }
+  form.interest .checks { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+  form.interest .checks label { font-weight: 400; display: flex; align-items: center; gap: 6px; margin: 0; }
+  form.interest .hp { position: absolute; left: -9999px; }
+  form.interest button {
+    font: inherit; font-weight: 700; background: var(--gold); color: var(--navy-dark);
+    border: 0; border-radius: 6px; padding: 12px 24px; cursor: pointer; justify-self: start;
+  }
+  form.interest button:disabled { opacity: .6; cursor: wait; }
+  .form-status { margin: 0; font-size: .95rem; }
+  .form-status.ok { color: #1d6b3a; font-weight: 600; }
+  .form-status.err { color: #a23b2a; }
 
   footer { background: var(--navy-dark); color: #aab4d4; font-size: .82rem; padding: 22px 0; }
 
@@ -132,7 +201,9 @@
     body { font-size: 16px; }
     section { padding: 52px 0; }
     .wrap { padding: 0 16px; }
-    .compare, .plans, .split, .feature, .grid3, .join dl { grid-template-columns: 1fr; }
+    .compare, .plans, .split, .feature, .grid3, form.interest, .calc { grid-template-columns: 1fr; }
+    .calc-inputs { padding: 18px; }
+    form.interest { padding: 20px; }
     .feature.flip > :first-child { order: 0; }
     nav ul { display: none; }
     .hero { padding: 72px 0 64px; }
@@ -147,9 +218,11 @@
     <ul>
       <li><a href="#costs">Costs</a></li>
       <li><a href="#plans">Plans</a></li>
+      <li><a href="#calculator">Calculator</a></li>
+      <li><a href="#founding">Founding offer</a></li>
       <li><a href="#site">The site</a></li>
       <li><a href="#paid">Getting paid</a></li>
-      <li><a href="#join">Join</a></li>
+      <li><a href="#join">Contact</a></li>
     </ul>
   </div>
 </nav>
@@ -159,7 +232,7 @@
     <p class="eyebrow">Railroad Collectibles Auction</p>
     <h1>Sell your slides.<br>Keep the commission.</h1>
     <p class="lede">An auction site built only for railroad slides, negatives and prints, with a flat monthly plan in place of a cut of every sale.</p>
-    <a class="btn" href="#join">Join the first group of sellers</a>
+    <a class="btn" href="#join">Register your interest</a>
     <p class="small">A walk-through for sellers · Screens show sample listings</p>
   </div>
 </header>
@@ -264,6 +337,183 @@
     <p class="note">Collector plan, $2 shipping, 7% sales tax, each slide paid for separately. eBay estimated at 13.6% plus 30 cents an order with no store, from third-party fee guides, October 2026.</p>
   </div>
 </section>
+
+<!-- Savings calculator -->
+<section id="calculator">
+  <div class="wrap">
+    <h2>Work out your own savings</h2>
+    <p>Enter what you usually sell. The figures update as you type.</p>
+    <div class="calc">
+      <form class="calc-inputs" id="calc-form" onsubmit="return false">
+        <div>
+          <label for="c-bid">Average winning bid</label>
+          <div class="money"><input type="number" id="c-bid" min="0" step="0.01" inputmode="decimal" value="6"></div>
+        </div>
+        <div>
+          <label for="c-sold">Items sold a month</label>
+          <input type="number" id="c-sold" min="0" step="1" inputmode="numeric" value="100">
+        </div>
+        <div>
+          <label for="c-ship">Shipping charged</label>
+          <div class="money"><input type="number" id="c-ship" min="0" step="0.01" inputmode="decimal" value="2"></div>
+          <span class="hint">For the first item in an order</span>
+        </div>
+        <div>
+          <label for="c-extra">Each extra item adds</label>
+          <div class="money"><input type="number" id="c-extra" min="0" step="0.01" inputmode="decimal" value="0"></div>
+          <span class="hint">Shipping for each additional item</span>
+        </div>
+        <div>
+          <label for="c-per">Items per order</label>
+          <input type="number" id="c-per" min="1" step="1" inputmode="numeric" value="1">
+          <span class="hint">How many items a buyer usually pays for together</span>
+        </div>
+        <div>
+          <label for="c-tax">Sales tax</label>
+          <div class="pct"><input type="number" id="c-tax" min="0" max="20" step="0.1" inputmode="decimal" value="7"></div>
+        </div>
+        <div class="full">
+          <label for="c-plan">Plan</label>
+          <select id="c-plan">
+            <option value="0" data-limit="50">Starter – free, up to 50 listings a month</option>
+            <option value="10" data-limit="300" selected>Collector – $10 a month, up to 300 listings</option>
+            <option value="25" data-limit="">Dealer – $25 a month, unlimited listings</option>
+            <option value="6.6667" data-limit="300">Founding Collector – $80 first year (about $6.67 a month)</option>
+            <option value="16.6667" data-limit="">Founding Dealer – $200 first year (about $16.67 a month)</option>
+          </select>
+        </div>
+        <button type="button" class="calc-reset full" id="c-reset">Reset to the example above</button>
+      </form>
+
+      <div class="calc-results" aria-live="polite">
+        <div class="savings" id="r-box">
+          <div class="label" id="r-label">You would save about</div>
+          <div class="big" id="r-month">$73</div>
+          <div class="sub" id="r-year">$876 a year</div>
+        </div>
+        <p class="calc-warn" id="r-warn" hidden></p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Each month</th><th class="num">This site</th><th class="num">eBay, est.</th></tr></thead>
+            <tbody>
+              <tr><td>Charges on <span id="r-orders">100 orders</span></td><td class="num" id="r-site-charges"></td><td class="num" id="r-ebay-charges"></td></tr>
+              <tr><td>Monthly plan</td><td class="num" id="r-plan"></td><td class="num">$0</td></tr>
+              <tr><td>Payout cost</td><td class="num" id="r-payout"></td><td class="num">$0</td></tr>
+              <tr class="total"><td>Total for the month</td><td class="num" id="r-site-total"></td><td class="num" id="r-ebay-total"></td></tr>
+              <tr><td>Share of <span id="r-sales">$600</span> in sales</td><td class="num" id="r-site-share"></td><td class="num" id="r-ebay-share"></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <p class="note">This site: Stripe's card processing (2.9% plus 30 cents an order), sales tax calculation (0.5%) and payout charge (0.25%) at cost, the plan price, and $2.25 for a month with a payout. eBay estimated at 13.6% of the order total plus 30 cents an order with no store, from third-party fee guides, October 2026. Sales tax is charged on the item and shipping. Estimates only.</p>
+  </div>
+</section>
+
+<script>
+  // Fee rates used by the savings calculator. Update here if Stripe or eBay change their fees.
+  var FEES = {
+    cardPct: 0.029,        // Stripe card processing, share of what the buyer pays
+    cardFixed: 0.30,       // Stripe card processing, per order
+    taxCalcPct: 0.005,     // Stripe Tax, share of what the buyer pays
+    payoutPct: 0.0025,     // Stripe payout charge, share of the seller's payout
+    payoutMonthly: 2.25,   // Stripe account and payout cost, per month with a payout
+    ebayPct: 0.136,        // eBay estimate, share of item + shipping + tax
+    ebayFixed: 0.30        // eBay estimate, per order
+  };
+
+  (function () {
+    var ids = ["bid", "sold", "ship", "extra", "per", "tax", "plan"];
+    var el = {};
+    ids.forEach(function (k) { el[k] = document.getElementById("c-" + k); });
+    var defaults = {};
+    ids.forEach(function (k) { defaults[k] = el[k].value; });
+    function $(id) { return document.getElementById(id); }
+
+    function num(input, min) {
+      var v = parseFloat(input.value);
+      return isFinite(v) && v >= min ? v : min;
+    }
+    function money(v) {
+      var neg = v < 0; v = Math.abs(v);
+      var s = v >= 1000 ? Math.round(v).toLocaleString("en-US")
+            : v >= 100 ? String(Math.round(v))
+            : v.toFixed(2).replace(/\.00$/, "");
+      return (neg ? "−$" : "$") + s;
+    }
+    function pct(v) { return isFinite(v) ? Math.round(v * 100) + "%" : "–"; }
+
+    function update() {
+      var bid = num(el.bid, 0), sold = Math.round(num(el.sold, 0)), ship = num(el.ship, 0);
+      var extra = num(el.extra, 0), per = Math.max(1, Math.round(num(el.per, 1))), tax = num(el.tax, 0) / 100;
+      var opt = el.plan.options[el.plan.selectedIndex];
+      var plan = parseFloat(opt.value), limit = opt.getAttribute("data-limit");
+
+      // Orders of `per` items; a final smaller order covers any remainder.
+      var full = Math.floor(sold / per), rest = sold % per;
+      var groups = [];
+      if (full) groups.push({ n: per, count: full });
+      if (rest) groups.push({ n: rest, count: 1 });
+      var orders = full + (rest ? 1 : 0);
+
+      var siteCharges = 0, ebayCharges = 0, sales = 0;
+      groups.forEach(function (g) {
+        var items = bid * g.n, shipping = g.n ? ship + extra * (g.n - 1) : 0;
+        var payout = items + shipping, buyerPays = payout * (1 + tax);
+        var site = buyerPays * (FEES.cardPct + FEES.taxCalcPct) + FEES.cardFixed + payout * FEES.payoutPct;
+        var ebay = buyerPays * FEES.ebayPct + FEES.ebayFixed;
+        siteCharges += site * g.count;
+        ebayCharges += ebay * g.count;
+        sales += items * g.count;
+      });
+
+      var payoutCost = sold > 0 ? FEES.payoutMonthly : 0;
+      var siteTotal = siteCharges + plan + payoutCost, ebayTotal = ebayCharges;
+      var save = ebayTotal - siteTotal;
+
+      $("r-orders").textContent = orders + (orders === 1 ? " order" : " orders");
+      $("r-sales").textContent = money(sales);
+      $("r-site-charges").textContent = money(siteCharges);
+      $("r-ebay-charges").textContent = money(ebayCharges);
+      $("r-plan").textContent = money(plan);
+      $("r-payout").textContent = money(payoutCost);
+      $("r-site-total").textContent = money(siteTotal);
+      $("r-ebay-total").textContent = money(ebayTotal);
+      $("r-site-share").textContent = sales ? pct(siteTotal / sales) : "–";
+      $("r-ebay-share").textContent = sales ? pct(ebayTotal / sales) : "–";
+
+      var box = $("r-box");
+      if (save >= 0) {
+        box.classList.remove("neg");
+        $("r-label").textContent = "You would save about";
+        $("r-month").innerHTML = money(save) + "<span> a month</span>";
+        $("r-year").textContent = money(save * 12) + " a year";
+      } else {
+        box.classList.add("neg");
+        $("r-label").textContent = "At these numbers this site costs more, by about";
+        $("r-month").innerHTML = money(-save) + "<span> a month</span>";
+        $("r-year").textContent = plan > 0 ? "Try the free Starter plan at this volume"
+                                           : "At very low volume the $2.25 monthly payout cost is more than the saving";
+      }
+
+      var warn = $("r-warn");
+      if (limit && sold > Number(limit)) {
+        warn.textContent = "This plan allows up to " + limit + " new listings a month, fewer than the " + sold +
+          " items sold. Choose a larger plan to list that many.";
+        warn.hidden = false;
+      } else {
+        warn.hidden = true;
+      }
+    }
+
+    ids.forEach(function (k) { el[k].addEventListener("input", update); el[k].addEventListener("change", update); });
+    $("c-reset").addEventListener("click", function () {
+      ids.forEach(function (k) { el[k].value = defaults[k]; });
+      update();
+    });
+    update();
+  })();
+</script>
 
 <!-- Marketplace -->
 <section id="site">
@@ -376,19 +626,148 @@
   </div>
 </section>
 
+<!-- Founding sellers -->
+<section id="founding">
+  <div class="wrap">
+    <p class="eyebrow founding-eyebrow">Founding sellers</p>
+    <h2>Pay for a year up front, get a third off</h2>
+    <p>The first sellers to join can lock in a year of a paid plan at a founding price. It helps cover the cost of opening the site, and it is the lowest price the plans will ever be.</p>
+    <div class="compare">
+      <div class="card offer">
+        <div class="label">Founding Collector</div>
+        <div class="big">$80<span> / first year</span></div>
+        <p>Up to 300 new listings a month for 12 months. Usually $120.</p>
+      </div>
+      <div class="card offer">
+        <div class="label">Founding Dealer</div>
+        <div class="big">$200<span> / first year</span></div>
+        <p>Unlimited new listings for 12 months. Usually $300.</p>
+      </div>
+    </div>
+    <div class="banner">Founding sellers also get a "Founding seller" badge on their seller page. Nothing is charged now: say you are interested in the form below and we will email you before opening day to confirm.</div>
+    <p class="note">Founding offers are limited to the first group of sellers. The first year starts on the day the site opens. If the site does not open, nothing is charged.</p>
+  </div>
+</section>
+
 <!-- Joining -->
 <section id="join" class="join">
   <div class="wrap">
-    <p class="eyebrow">Joining</p>
+    <p class="eyebrow">Register your interest</p>
     <h2>We are inviting a first group of sellers.</h2>
-    <p>The site is built and in final testing. Start on the free Starter plan with up to 50 listings a month, and move up only if it works for you.</p>
-    <dl>
-      <div><dt>Opening</dt><dd>[launch date]</dd></div>
-      <div><dt>To take part</dt><dd>[contact name and email]</dd></div>
-      <div><dt>Site</dt><dd>[web address]</dd></div>
-    </dl>
+    <p>The site is built and in final testing. Leave your details and we will get in touch before opening day.</p>
+    <div class="split">
+      <form class="interest" id="interest-form" novalidate>
+        <div>
+          <label for="f-name">Name</label>
+          <input type="text" id="f-name" name="name" autocomplete="name" required>
+        </div>
+        <div>
+          <label for="f-email">Email</label>
+          <input type="email" id="f-email" name="email" autocomplete="email" required>
+        </div>
+        <div>
+          <label for="f-state">State <span class="opt">(optional)</span></label>
+          <input type="text" id="f-state" name="state" autocomplete="address-level1">
+        </div>
+        <div>
+          <label for="f-size">Roughly how many items to sell?</label>
+          <select id="f-size" name="collection_size">
+            <option value="">Choose one</option>
+            <option>Under 100</option>
+            <option>100 – 1,000</option>
+            <option>1,000 – 10,000</option>
+            <option>More than 10,000</option>
+          </select>
+        </div>
+        <fieldset class="full">
+          <legend>What do you sell?</legend>
+          <div class="checks">
+            <label><input type="checkbox" name="sells" value="Slides"> Slides</label>
+            <label><input type="checkbox" name="sells" value="Negatives"> Negatives</label>
+            <label><input type="checkbox" name="sells" value="Prints"> Prints</label>
+            <label><input type="checkbox" name="sells" value="Other"> Other</label>
+          </div>
+        </fieldset>
+        <div>
+          <label for="f-plan">Plan you would start on</label>
+          <select id="f-plan" name="plan">
+            <option value="">Not sure yet</option>
+            <option>Starter – free</option>
+            <option>Collector – $10 a month</option>
+            <option>Dealer – $25 a month</option>
+          </select>
+        </div>
+        <div>
+          <label for="f-founding">Founding seller offer</label>
+          <select id="f-founding" name="founding_offer">
+            <option value="">Not interested / not sure</option>
+            <option>Founding Collector – $80 first year</option>
+            <option>Founding Dealer – $200 first year</option>
+          </select>
+        </div>
+        <div>
+          <label for="f-now">Where do you sell now? <span class="opt">(optional)</span></label>
+          <input type="text" id="f-now" name="sells_now" placeholder="e.g. eBay, shows">
+        </div>
+        <div class="full">
+          <label for="f-msg">Questions or comments <span class="opt">(optional)</span></label>
+          <textarea id="f-msg" name="message"></textarea>
+        </div>
+        <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button type="submit" class="full">Send my details</button>
+        <p class="form-status full" id="form-status" role="status" aria-live="polite"></p>
+      </form>
+      <div>
+        <h3>What happens next</h3>
+        <ul>
+          <li>We reply by email with the opening date and how to set up your seller account.</li>
+          <li>Everyone starts on the free Starter plan with up to 50 listings a month, and moves up only if it works for them.</li>
+          <li>If you chose a founding offer, we confirm it by email before anything is charged.</li>
+          <li>No payment details are needed to register interest.</li>
+        </ul>
+      </div>
+    </div>
   </div>
 </section>
+
+<script>
+  // Formspree form ID, e.g. "xyzabcde" from https://formspree.io/f/xyzabcde
+  var FORMSPREE_ID = "mrpppzpp";
+
+  (function () {
+    var form = document.getElementById("interest-form");
+    var status = document.getElementById("form-status");
+    var button = form.querySelector("button");
+
+    function show(msg, kind) { status.textContent = msg; status.className = "form-status full " + kind; }
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var name = form.elements.name, email = form.elements.email;
+      if (!name.value.trim()) { show("Please enter your name.", "err"); name.focus(); return; }
+      if (!email.validity.valid || !email.value.trim()) { show("Please enter a valid email address.", "err"); email.focus(); return; }
+      if (FORMSPREE_ID === "YOUR_FORM_ID") { show("This form is not connected yet. Please check back soon.", "err"); return; }
+
+      var data = new FormData(form);
+      var sells = data.getAll("sells");
+      data.delete("sells");
+      data.append("sells", sells.join(", "));
+      data.append("_subject", "Seller interest: " + name.value.trim());
+
+      button.disabled = true;
+      show("Sending…", "");
+      fetch("https://formspree.io/f/" + FORMSPREE_ID, {
+        method: "POST", body: data, headers: { Accept: "application/json" }
+      }).then(function (r) {
+        if (!r.ok) throw new Error();
+        form.reset();
+        show("Thank you. We have your details and will be in touch before opening day.", "ok");
+      }).catch(function () {
+        show("Sorry, that did not send. Please try again in a moment.", "err");
+      }).then(function () { button.disabled = false; });
+    });
+  })();
+</script>
 
 <footer>
   <div class="wrap">Railroad Collectibles Auction · Seller overview · Screens show sample listings.</div>
