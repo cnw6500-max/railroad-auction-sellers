@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img" aria-label="Founding Seller – Railroad Collectibles Auction, 2026">
+  <defs>
+    <path id="arc-top" d="M 70 200 A 130 130 0 0 1 330 200"/>
+    <path id="arc-bottom" d="M 62 200 A 138 138 0 0 0 338 200"/>
+  </defs>
+
+  <!-- rings -->
+  <circle cx="200" cy="200" r="196" fill="#f0b94a"/>
+  <circle cx="200" cy="200" r="184" fill="#162b6b"/>
+  <circle cx="200" cy="200" r="176" fill="none" stroke="#f0b94a" stroke-width="2"/>
+  <circle cx="200" cy="200" r="112" fill="#1f3a8f" stroke="#f0b94a" stroke-width="3"/>
+
+  <!-- curved ring text -->
+  <text font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="25" letter-spacing="3" fill="#f0b94a">
+    <textPath href="#arc-top" startOffset="50%" text-anchor="middle">RAILROAD COLLECTIBLES</textPath>
+  </text>
+  <text font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="25" letter-spacing="4" fill="#f0b94a">
+    <textPath href="#arc-bottom" startOffset="50%" text-anchor="middle" dominant-baseline="hanging">AUCTION · 2026</textPath>
+  </text>
+
+  <!-- side stars -->
+  <g fill="#f0b94a">
+    <polygon points="32,200 36,209 46,209 38,215 41,225 32,219 23,225 26,215 18,209 28,209" transform="translate(0,-12)"/>
+    <polygon points="368,200 372,209 382,209 374,215 377,225 368,219 359,225 362,215 354,209 364,209" transform="translate(0,-12)"/>
+  </g>
+
+  <!-- centre wording -->
+  <text x="200" y="186" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="32" letter-spacing="1" fill="#ffffff">FOUNDING</text>
+  <text x="200" y="224" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="32" letter-spacing="1" fill="#ffffff">SELLER</text>
+
+  <!-- track: two rails and ties -->
+  <g>
+    <g fill="#f0b94a">
+      <rect x="128" y="246" width="7" height="22" rx="1"/>
+      <rect x="148" y="246" width="7" height="22" rx="1"/>
+      <rect x="168" y="246" width="7" height="22" rx="1"/>
+      <rect x="188" y="246" width="7" height="22" rx="1"/>
+      <rect x="208" y="246" width="7" height="22" rx="1"/>
+      <rect x="228" y="246" width="7" height="22" rx="1"/>
+      <rect x="248" y="246" width="7" height="22" rx="1"/>
+      <rect x="268" y="246" width="7" height="22" rx="1"/>
+    </g>
+    <rect x="116" y="250" width="168" height="4" rx="2" fill="#ffffff"/>
+    <rect x="116" y="260" width="168" height="4" rx="2" fill="#ffffff"/>
+  </g>
+
+  <!-- top star -->
+  <polygon fill="#f0b94a" points="200,110 207,126 224,126 210,136 216,152 200,142 184,152 190,136 176,126 193,126"/>
+</svg>

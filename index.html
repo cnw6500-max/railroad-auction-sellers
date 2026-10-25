@@ -80,6 +80,31 @@
   .card.offer { border: 2px solid var(--gold); }
   .card.offer .big { color: var(--navy); }
   .card.offer .big span { font-size: 1rem; color: var(--muted); font-weight: 400; }
+
+  /* founding seller badge */
+  .badge-box {
+    margin-top: 28px; background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+    padding: 28px; display: grid; grid-template-columns: 200px 1fr; gap: 32px; align-items: center;
+  }
+  .badge-box > img { width: 200px; height: 200px; display: block; }
+  .badge-box h3 { color: var(--navy); margin-bottom: 8px; }
+  .badge-downloads { display: flex; flex-wrap: wrap; gap: 10px; margin: 14px 0 18px; }
+  .badge-downloads a {
+    display: inline-block; font-size: .9rem; font-weight: 600; text-decoration: none;
+    border: 1px solid var(--navy); color: var(--navy); border-radius: 6px; padding: 7px 14px;
+  }
+  .badge-downloads a:hover { background: var(--navy); color: #fff; }
+  .embed { margin-bottom: 12px; }
+  .embed label { display: block; font-weight: 600; font-size: .85rem; margin-bottom: 4px; }
+  .embed-row { display: flex; gap: 8px; }
+  .embed-row input {
+    flex: 1; min-width: 0; font-family: Consolas, "Courier New", monospace; font-size: .8rem;
+    border: 1px solid #c4cada; border-radius: 6px; padding: 8px 10px; background: var(--bg); color: var(--ink);
+  }
+  .embed-row button {
+    font: inherit; font-size: .85rem; font-weight: 600; background: var(--navy); color: #fff;
+    border: 0; border-radius: 6px; padding: 0 14px; cursor: pointer; white-space: nowrap;
+  }
   .plan h3 { color: var(--navy); margin-bottom: 6px; }
   .plan .price { font-size: 2.6rem; font-weight: 700; margin: 4px 0 12px; }
   .plan .price span { font-size: 1rem; color: var(--muted); font-weight: 400; }
@@ -203,6 +228,8 @@
     .wrap { padding: 0 16px; }
     .compare, .plans, .split, .feature, .grid3, form.interest, .calc { grid-template-columns: 1fr; }
     .calc-inputs { padding: 18px; }
+    .badge-box { grid-template-columns: 1fr; padding: 20px; gap: 16px; }
+    .badge-box > img { width: 160px; height: 160px; }
     form.interest { padding: 20px; }
     .feature.flip > :first-child { order: 0; }
     nav ul { display: none; }
@@ -644,10 +671,63 @@
         <p>Unlimited new listings for 12 months. Usually $300.</p>
       </div>
     </div>
-    <div class="banner">Founding sellers also get a "Founding seller" badge on their seller page. Nothing is charged now: say you are interested in the form below and we will email you before opening day to confirm.</div>
-    <p class="note">Founding offers are limited to the first group of sellers. The first year starts on the day the site opens. If the site does not open, nothing is charged.</p>
+    <div class="banner">Nothing is charged now: say you are interested in the form below and we will email you before opening day to confirm.</div>
+
+    <div class="badge-box" id="badge">
+      <img src="images/founding-seller-badge.svg" alt="Founding Seller badge – Railroad Collectibles Auction, 2026" width="200" height="200">
+      <div>
+        <h3>The Founding Seller badge</h3>
+        <p>Founding sellers get this badge on their seller page and every listing. Show it on your own profiles too: on forums, club and historical society pages, your website or your email signature.</p>
+        <div class="badge-downloads">
+          <a href="images/founding-seller-badge-400.png" download>Download PNG, large</a>
+          <a href="images/founding-seller-badge-150.png" download>Download PNG, small</a>
+          <a href="images/founding-seller-badge.svg" download>Download SVG</a>
+        </div>
+        <div class="embed">
+          <label for="embed-html">For a website or profile that accepts HTML</label>
+          <div class="embed-row">
+            <input type="text" id="embed-html" readonly>
+            <button type="button" data-copy="embed-html">Copy</button>
+          </div>
+        </div>
+        <div class="embed">
+          <label for="embed-bb">For forums that use BBCode</label>
+          <div class="embed-row">
+            <input type="text" id="embed-bb" readonly>
+            <button type="button" data-copy="embed-bb">Copy</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="note">Founding offers are limited to the first group of sellers. The first year starts on the day the site opens. If the site does not open, nothing is charged. Please display the badge only once your founding plan is confirmed.</p>
   </div>
 </section>
+
+<script>
+  // Public address of this page; the badge embed codes link back here.
+  var SITE_URL = "https://cnw6500-max.github.io/railroad-auction-sellers/";
+
+  (function () {
+    var img = SITE_URL + "images/founding-seller-badge-150.png";
+    var alt = "Founding Seller – Railroad Collectibles Auction";
+    document.getElementById("embed-html").value =
+      '<a href="' + SITE_URL + '"><img src="' + img + '" width="120" height="120" alt="' + alt + '"></a>';
+    document.getElementById("embed-bb").value = "[url=" + SITE_URL + "][img]" + img + "[/img][/url]";
+
+    document.querySelectorAll("[data-copy]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var input = document.getElementById(btn.getAttribute("data-copy"));
+        function done() { btn.textContent = "Copied"; setTimeout(function () { btn.textContent = "Copy"; }, 1800); }
+        input.select();
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(input.value).then(done, function () { document.execCommand("copy"); done(); });
+        } else {
+          document.execCommand("copy"); done();
+        }
+      });
+    });
+  })();
+</script>
 
 <!-- Joining -->
 <section id="join" class="join">

@@ -14,6 +14,9 @@ A one-page website version of the seller deck, hosted free on GitHub Pages.
 | `images/listing-page.jpg` | Screenshot: auction listing page |
 | `images/listing-form.jpg` | Screenshot: listing form |
 | `images/seller-dashboard.jpg` | Screenshot: seller dashboard |
+| `images/founding-seller-badge.svg` | Founding Seller badge (sharp at any size) |
+| `images/founding-seller-badge-400.png` | Founding Seller badge, large PNG |
+| `images/founding-seller-badge-150.png` | Founding Seller badge, small PNG (used by the copy-and-paste codes) |
 | `README.md` | This file |
 
 The `images` folder must stay a folder named `images` next to `index.html`, or the screenshots will not show.
@@ -27,7 +30,7 @@ The repository and GitHub Pages are already set up. To publish a new version:
 3. Click **Add file** (above the file list) → **Upload files**.
 4. In File Explorer, open the extracted folder. Select `index.html`, `README.md` and the `images` **folder**, and drag them onto the GitHub page.
    - Drag the `images` folder itself, not the pictures inside it, so they stay in `images/`.
-   - Wait until every file is listed under the drop area (6 files).
+   - Wait until every file is listed under the drop area (9 files).
 5. Scroll down to **Commit changes**. Optionally type a note such as "Add savings calculator and founding offer", leave **Commit directly to the main branch** selected, and click **Commit changes**.
 6. Wait 1–2 minutes. GitHub rebuilds the site automatically (progress shows under the **Actions** tab, green tick when done).
 7. Open the live site and press **Ctrl + F5** to skip the old copy your browser saved.
@@ -38,12 +41,13 @@ Files with the same name are replaced; nothing else in the repository is touched
 
 - The menu bar shows: Costs · Plans · Calculator · Founding offer · The site · Getting paid · Contact
 - **Calculator:** with the example values it shows about **$73 a month** saved; change a number and it updates.
-- **Founding offer:** two gold-bordered cards, $80 and $200 for the first year.
+- **Founding offer:** two gold-bordered cards, $80 and $200 for the first year, then the Founding Seller badge with download buttons and copy-and-paste codes.
 - **Contact:** the form at the bottom. Send yourself a test entry; it should arrive by email from Formspree.
 
 ## Settings you may want to change later (in `index.html`)
 
 - **Formspree form:** `var FORMSPREE_ID = "mrpppzpp";` — entries go to the email on that Formspree form.
+- **Badge link address:** `var SITE_URL = "..."` — the address the badge codes link to. Change it if the site moves to its own web address.
 - **Fee rates for the calculator:** the `var FEES = { ... }` block. Each rate has a comment saying what it is.
 - **Founding prices:** search for `Founding Collector` and `Founding Dealer`. They appear in the offer cards, the form's drop-down and the calculator's plan list — change all three.
 
