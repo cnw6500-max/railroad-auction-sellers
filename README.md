@@ -9,14 +9,14 @@ A one-page website version of the seller deck, hosted free on GitHub Pages.
 
 | File | What it is |
 |---|---|
-| `index.html` | The whole website: deck sections, savings calculator, founding seller offer and interest form |
+| `index.html` | The whole website: deck sections, savings calculator and interest forms |
 | `images/home-page.jpg` | Screenshot: site home page |
 | `images/listing-page.jpg` | Screenshot: auction listing page |
 | `images/listing-form.jpg` | Screenshot: listing form |
 | `images/seller-dashboard.jpg` | Screenshot: seller dashboard |
-| `images/founding-seller-badge.svg` | Founding Seller badge (sharp at any size) |
-| `images/founding-seller-badge-400.png` | Founding Seller badge, large PNG |
-| `images/founding-seller-badge-150.png` | Founding Seller badge, small PNG (used by the copy-and-paste codes) |
+| `images/founding-seller-badge.svg` | Founding Seller badge (no longer on the page; kept so badges already posted elsewhere keep working) |
+| `images/founding-seller-badge-400.png` | Founding Seller badge, large PNG (kept, as above) |
+| `images/founding-seller-badge-150.png` | Founding Seller badge, small PNG (kept, as above) |
 | `README.md` | This file |
 
 The `images` folder must stay a folder named `images` next to `index.html`, or the screenshots will not show.
@@ -31,7 +31,7 @@ The repository and GitHub Pages are already set up. To publish a new version:
 4. In File Explorer, open the extracted folder. Select `index.html`, `README.md` and the `images` **folder**, and drag them onto the GitHub page.
    - Drag the `images` folder itself, not the pictures inside it, so they stay in `images/`.
    - Wait until every file is listed under the drop area (9 files).
-5. Scroll down to **Commit changes**. Optionally type a note such as "Add savings calculator and founding offer", leave **Commit directly to the main branch** selected, and click **Commit changes**.
+5. Scroll down to **Commit changes**. Optionally type a note such as "Update the seller page", leave **Commit directly to the main branch** selected, and click **Commit changes**.
 6. Wait 1–2 minutes. GitHub rebuilds the site automatically (progress shows under the **Actions** tab, green tick when done).
 7. Open the live site and press **Ctrl + F5** to skip the old copy your browser saved.
 
@@ -39,21 +39,17 @@ Files with the same name are replaced; nothing else in the repository is touched
 
 ## Check it worked
 
-- The menu bar shows: Costs · Plans · Calculator · Founding offer · The site · Getting paid · About · Contact
+- The menu bar shows: Costs · Plans · Calculator · The site · Getting paid · About · Contact
 - **Calculator:** with the example values it shows about **$73 a month** saved; change a number and it updates.
-- **Founding offer:** two gold-bordered cards, $80 and $200 for the first year, then the Founding Seller badge with download buttons and copy-and-paste codes.
 - **Contact:** the form at the bottom. Send yourself a test entry; it should arrive by email from Formspree.
 
 ## Settings you may want to change later (in `index.html`)
 
 - **About section:** search for `Hi, I'm Ron Minor` in `index.html` to edit the text; the initials in the circle are `RDM`.
-- **Founding limit:** "Only 50 founding places" — search for `50 founding` and `first 50` to change the number.
 - **Buyer sign-up:** the "For collectors" form at the bottom. Entries arrive through the same Formspree form, with the subject "Buyer interest" and `interest_type: Buyer` (seller entries say `Seller`). Both forms share Formspree's monthly entry limit.
-- **Visitor counter:** Umami Cloud, script near the top of `index.html` (`data-website-id="5f79…"`). See visits and events (Interest form sent, Buyer sign-up, Calculator used, Badge download, Badge code copied) at https://cloud.umami.is. It only counts visits on `cnw6500-max.github.io`.
+- **Visitor counter:** Umami Cloud, script near the top of `index.html` (`data-website-id="5f79…"`). See visits and events (Interest form sent, Buyer sign-up, Calculator used) at https://cloud.umami.is. It only counts visits on `cnw6500-max.github.io`.
 - **Formspree form:** `var FORMSPREE_ID = "mrpppzpp";` — entries go to the email on that Formspree form.
-- **Badge link address:** `var SITE_URL = "..."` — the address the badge codes link to. Change it if the site moves to its own web address.
-- **Fee rates for the calculator:** the `var FEES = { ... }` block. Each rate has a comment saying what it is. The site commission (3%) is set per plan in the calculator's Plan list (`data-commission="0.03"`; founding plans use `0`); if the rate changes, also update the 3% figures in the cost sections, plan banner and founding offer.
-- **Founding prices:** search for `Founding Collector` and `Founding Dealer`. They appear in the offer cards, the form's drop-down and the calculator's plan list — change all three.
+- **Fee rates for the calculator:** the `var FEES = { ... }` block. Each rate has a comment saying what it is. The site commission (3%) is set per plan in the calculator's Plan list (`data-commission="0.03"`); if the rate changes, also update the 3% figures in the cost sections and plan banner.
 
 Open `index.html` in Notepad to edit, save, then upload it again with the steps above.
 
