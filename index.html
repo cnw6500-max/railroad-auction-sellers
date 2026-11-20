@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Railroad Collectibles Auction – For Sellers</title>
-<meta name="description" content="An auction site built only for railroad slides, negatives and prints, with a flat monthly plan in place of a cut of every sale.">
+<meta name="description" content="An auction site built only for railroad slides, negatives and prints. Free to list; a 3% commission on the winning bid, nothing on shipping or tax, and far less than eBay takes.">
 <!-- Visitor counter: Umami Cloud (cookie-free). Dashboard at https://cloud.umami.is -->
 <script defer src="https://cloud.umami.is/script.js" data-website-id="5f7910ae-1b97-40fc-9461-1447aa01fc8d" data-domains="cnw6500-max.github.io"></script>
 <style>
@@ -82,6 +82,18 @@
   .plan.featured { border: 2px solid var(--navy); }
   .founding-eyebrow { color: #b07a12; }
   .card.offer { border: 2px solid var(--gold); }
+  .free-listing {
+    margin-top: 28px; display: grid; grid-template-columns: auto 1fr; gap: 22px; align-items: center;
+    background: var(--navy); color: #fff; border-radius: 10px; padding: 24px 28px;
+  }
+  .free-listing h3 { color: var(--gold); margin-bottom: 8px; font-size: 1.4rem; }
+  .free-listing p { color: #e4e9f8; margin-bottom: 8px; }
+  .free-listing p:last-child { margin-bottom: 0; }
+  .free-listing strong { color: #fff; }
+  .free-badge {
+    width: 96px; height: 96px; border-radius: 50%; background: var(--gold); color: var(--navy-dark);
+    display: grid; place-items: center; font-size: 2.1rem; font-weight: 800;
+  }
   /* about */
   .about { display: grid; grid-template-columns: 120px minmax(0, 760px); gap: 36px; align-items: start; }
   .about-mark {
@@ -248,6 +260,8 @@
     .compare, .plans, .split, .feature, .grid3, form.interest, .calc { grid-template-columns: 1fr; }
     .calc-inputs { padding: 18px; }
     .badge-box { grid-template-columns: 1fr; padding: 20px; gap: 16px; }
+    .free-listing { grid-template-columns: 1fr; padding: 20px; gap: 14px; }
+    .free-badge { width: 72px; height: 72px; font-size: 1.6rem; }
     .about { grid-template-columns: 1fr; gap: 16px; }
     .about-mark { width: 84px; height: 84px; font-size: 1.7rem; }
     .badge-box > img { width: 160px; height: 160px; }
@@ -280,8 +294,8 @@
 <header class="hero">
   <div class="wrap">
     <p class="eyebrow">Railroad Collectibles Auction</p>
-    <h1>Sell your slides.<br>Keep the commission.</h1>
-    <p class="lede">An auction site built only for railroad slides, negatives and prints, with a flat monthly plan in place of a cut of every sale.</p>
+    <h1>Sell your slides for less.<br>Keep more of every sale.</h1>
+    <p class="lede">An auction site built only for railroad slides, negatives and prints. <strong>Listing is always free.</strong> A 3% commission only when it sells, nothing on shipping or tax, and far less than eBay takes.</p>
     <a class="btn" href="#join">Register your interest</a>
     <a class="hero-link" href="#buyers">Collector? Get notified when it opens →</a>
     <p class="small">A walk-through for sellers · Screens show sample listings</p>
@@ -295,8 +309,8 @@
     <div class="compare">
       <div class="card good">
         <div class="label">On this site</div>
-        <div class="big">61¢</div>
-        <p>Card processing at cost. Nothing is added and the site keeps none of it.</p>
+        <div class="big">79¢</div>
+        <p>A 3% commission on the $6 bid (18¢), plus card processing at cost. No fee on shipping or sales tax.</p>
       </div>
       <div class="card bad">
         <div class="label">On eBay, estimated</div>
@@ -304,14 +318,24 @@
         <p>A percentage of the item, the shipping and the sales tax, plus 30 cents an order.</p>
       </div>
     </div>
-    <p class="note">$6 winning bid, $2 shipping, 7% sales tax. eBay estimated at 13.6% plus 30 cents from third-party fee guides, October 2026.</p>
+    <p class="note">$6 winning bid, $2 shipping, 7% sales tax: about 45% less than eBay. eBay estimated at 13.6% plus 30 cents from third-party fee guides, October 2026.</p>
+
+    <div class="free-listing">
+      <div class="free-badge">$0</div>
+      <div>
+        <h3>Listing is always free</h3>
+        <p>No insertion fees, and no charge to set a reserve, add Buy Now, add more photos or relist. You pay the 3% only when an item sells.</p>
+        <p class="free-compare">eBay charges <strong>35¢ for every listing after your first 250 each month</strong>, plus extra for optional upgrades. List a box of 1,000 slides there and that is <strong>$262.50</strong> before anything sells. Here it is $0.</p>
+      </div>
+    </div>
+    <p class="note">eBay's 250 free listings a month and 35¢ insertion fee from eBay's selling fees page, November 2026. Each plan has a monthly listing allowance: Starter 50, Collector 300, Dealer unlimited.</p>
   </div>
 </section>
 
 <!-- Plans -->
 <section id="plans" class="alt">
   <div class="wrap">
-    <h2>Three plans, no commission on any of them</h2>
+    <h2>Three plans, one low 3% commission</h2>
     <div class="plans">
       <div class="plan">
         <h3>Starter</h3>
@@ -329,7 +353,7 @@
         <p>Unlimited new listings. For high-volume sellers.</p>
       </div>
     </div>
-    <div class="banner">Every plan: card charges passed on at cost, sales tax collected for you, and bidding is always free for buyers.</div>
+    <div class="banner">Every plan: free to list, then a 3% commission on the winning bid only, never on shipping or sales tax. Card charges passed on at cost, sales tax collected for you, and bidding is always free for buyers.</div>
     <p class="note">Prices are per month. Paid plans can be changed or cancelled at any time.</p>
   </div>
 </section>
@@ -343,17 +367,18 @@
         <table>
           <thead><tr><th>Buyer pays $8.56 for a $6 slide</th><th class="num">Amount</th></tr></thead>
           <tbody>
+            <tr><td>Site commission, 3% of the $6 bid</td><td class="num">$0.18</td></tr>
             <tr><td>Card processing, 2.9% plus 30 cents</td><td class="num">$0.55</td></tr>
             <tr><td>Sales tax calculation, 0.5%</td><td class="num">$0.04</td></tr>
             <tr><td>Payout charge, 0.25%</td><td class="num">$0.02</td></tr>
-            <tr class="total"><td>Deducted from your payout</td><td class="num">$0.61</td></tr>
-            <tr><td>Kept by the site</td><td class="num">$0.00</td></tr>
+            <tr class="total"><td>Deducted from your payout</td><td class="num">$0.79</td></tr>
+            <tr><td>You keep, of the $8.00 bid and shipping</td><td class="num">$7.21</td></tr>
           </tbody>
         </table>
       </div>
       <div>
-        <h3>You keep the bid and the shipping</h3>
-        <p>The deductions are what Stripe, the payment processor, charges to handle the sale.</p>
+        <h3>You keep the shipping in full</h3>
+        <p>The site's 3% is taken from the winning bid only. The rest is what Stripe, the payment processor, charges to handle the sale, passed on at cost.</p>
         <p>Sales tax is added on top for the buyer. It never comes out of your money.</p>
         <p>In a month you are paid out, $2.25 is deducted once for Stripe's account and payout cost.</p>
       </div>
@@ -365,24 +390,25 @@
 <!-- Typical month -->
 <section class="alt">
   <div class="wrap">
-    <h2>A typical month: about half the cost of eBay</h2>
+    <h2>A typical month: nearly 40% less than eBay</h2>
     <div class="split">
       <div class="table-wrap">
         <table>
           <thead><tr><th>250 listed, 100 sold at $6</th><th class="num">This site</th><th class="num">eBay, est.</th></tr></thead>
           <tbody>
-            <tr><td>Charges on 100 sales</td><td class="num">$61</td><td class="num">$146</td></tr>
+            <tr><td>Site commission, 3% of $600</td><td class="num">$18</td><td class="num">–</td></tr>
+            <tr><td>Card and Stripe charges on 100 sales</td><td class="num">$61</td><td class="num">$146</td></tr>
             <tr><td>Monthly plan</td><td class="num">$10</td><td class="num">$0</td></tr>
             <tr><td>Payout cost</td><td class="num">$2.25</td><td class="num">$0</td></tr>
-            <tr class="total"><td>Total for the month</td><td class="num">$73</td><td class="num">$146</td></tr>
-            <tr><td>Share of $600 in slide sales</td><td class="num">12%</td><td class="num">24%</td></tr>
+            <tr class="total"><td>Total for the month</td><td class="num">$91</td><td class="num">$146</td></tr>
+            <tr><td>Share of $600 in slide sales</td><td class="num">15%</td><td class="num">24%</td></tr>
           </tbody>
         </table>
       </div>
       <div>
         <h3>What the comparison leaves out</h3>
         <p>eBay's fee buys access to its buyers. This site is new and is building its own audience of railroad collectors.</p>
-        <p>About 10 of the 12 points here is card processing, which any site selling $6 items by card has to pay.</p>
+        <p>About 10 of the 15 points here is card processing, which any site selling $6 items by card has to pay. The site's own share is the 3% commission.</p>
       </div>
     </div>
     <p class="note">Collector plan, $2 shipping, 7% sales tax, each slide paid for separately. eBay estimated at 13.6% plus 30 cents an order with no store, from third-party fee guides, October 2026.</p>
@@ -399,6 +425,11 @@
         <div>
           <label for="c-bid">Average winning bid</label>
           <div class="money"><input type="number" id="c-bid" min="0" step="0.01" inputmode="decimal" value="6"></div>
+        </div>
+        <div>
+          <label for="c-listed">Items listed a month</label>
+          <input type="number" id="c-listed" min="0" step="1" inputmode="numeric" value="250">
+          <span class="hint">Free here; eBay charges 35¢ each after 250</span>
         </div>
         <div>
           <label for="c-sold">Items sold a month</label>
@@ -426,11 +457,11 @@
         <div class="full">
           <label for="c-plan">Plan</label>
           <select id="c-plan">
-            <option value="0" data-limit="50">Starter – free, up to 50 listings a month</option>
-            <option value="10" data-limit="300" selected>Collector – $10 a month, up to 300 listings</option>
-            <option value="25" data-limit="">Dealer – $25 a month, unlimited listings</option>
-            <option value="6.6667" data-limit="300">Founding Collector – $80 first year (about $6.67 a month)</option>
-            <option value="16.6667" data-limit="">Founding Dealer – $200 first year (about $16.67 a month)</option>
+            <option value="0" data-limit="50" data-commission="0.03">Starter – no monthly fee, up to 50 listings a month</option>
+            <option value="10" data-limit="300" data-commission="0.03" selected>Collector – $10 a month, up to 300 listings</option>
+            <option value="25" data-limit="" data-commission="0.03">Dealer – $25 a month, unlimited listings</option>
+            <option value="6.6667" data-limit="300" data-commission="0">Founding Collector – $80 first year, no commission (about $6.67 a month)</option>
+            <option value="16.6667" data-limit="" data-commission="0">Founding Dealer – $200 first year, no commission (about $16.67 a month)</option>
           </select>
         </div>
         <button type="button" class="calc-reset full" id="c-reset">Reset to the example above</button>
@@ -447,8 +478,10 @@
           <table>
             <thead><tr><th>Each month</th><th class="num">This site</th><th class="num">eBay, est.</th></tr></thead>
             <tbody>
-              <tr><td>Charges on <span id="r-orders">100 orders</span></td><td class="num" id="r-site-charges"></td><td class="num" id="r-ebay-charges"></td></tr>
+              <tr><td>Site commission</td><td class="num" id="r-commission"></td><td class="num">–</td></tr>
+              <tr><td>Card and Stripe charges on <span id="r-orders">100 orders</span></td><td class="num" id="r-site-charges"></td><td class="num" id="r-ebay-charges"></td></tr>
               <tr><td>Monthly plan</td><td class="num" id="r-plan"></td><td class="num">$0</td></tr>
+              <tr><td>Listing fees</td><td class="num">$0</td><td class="num" id="r-ebay-listing"></td></tr>
               <tr><td>Payout cost</td><td class="num" id="r-payout"></td><td class="num">$0</td></tr>
               <tr class="total"><td>Total for the month</td><td class="num" id="r-site-total"></td><td class="num" id="r-ebay-total"></td></tr>
               <tr><td>Share of <span id="r-sales">$600</span> in sales</td><td class="num" id="r-site-share"></td><td class="num" id="r-ebay-share"></td></tr>
@@ -457,24 +490,27 @@
         </div>
       </div>
     </div>
-    <p class="note">This site: Stripe's card processing (2.9% plus 30 cents an order), sales tax calculation (0.5%) and payout charge (0.25%) at cost, the plan price, and $2.25 for a month with a payout. eBay estimated at 13.6% of the order total plus 30 cents an order with no store, from third-party fee guides, October 2026. Sales tax is charged on the item and shipping. Estimates only.</p>
+    <p class="note">This site: a 3% commission on the winning bid (none in a founding seller's first year), Stripe's card processing (2.9% plus 30 cents an order), sales tax calculation (0.5%) and payout charge (0.25%) at cost, the plan price, and $2.25 for a month with a payout. Listing is free here. eBay estimated at 13.6% of the order total plus 30 cents an order with no store, and 35¢ for each listing after 250 a month, from third-party fee guides, October 2026. Sales tax is charged on the item and shipping. Estimates only.</p>
   </div>
 </section>
 
 <script>
   // Fee rates used by the savings calculator. Update here if Stripe or eBay change their fees.
   var FEES = {
+    commissionPct: 0.03,   // the site's commission on the winning bid (plans set their own rate in the Plan list)
     cardPct: 0.029,        // Stripe card processing, share of what the buyer pays
     cardFixed: 0.30,       // Stripe card processing, per order
     taxCalcPct: 0.005,     // Stripe Tax, share of what the buyer pays
     payoutPct: 0.0025,     // Stripe payout charge, share of the seller's payout
     payoutMonthly: 2.25,   // Stripe account and payout cost, per month with a payout
     ebayPct: 0.136,        // eBay estimate, share of item + shipping + tax
-    ebayFixed: 0.30        // eBay estimate, per order
+    ebayFixed: 0.30,       // eBay estimate, per order
+    ebayFreeListings: 250, // eBay listings a month with no insertion fee
+    ebayInsertion: 0.35    // eBay insertion fee for each listing after those
   };
 
   (function () {
-    var ids = ["bid", "sold", "ship", "extra", "per", "tax", "plan"];
+    var ids = ["bid", "listed", "sold", "ship", "extra", "per", "tax", "plan"];
     var el = {};
     ids.forEach(function (k) { el[k] = document.getElementById("c-" + k); });
     var defaults = {};
@@ -499,6 +535,7 @@
       var extra = num(el.extra, 0), per = Math.max(1, Math.round(num(el.per, 1))), tax = num(el.tax, 0) / 100;
       var opt = el.plan.options[el.plan.selectedIndex];
       var plan = parseFloat(opt.value), limit = opt.getAttribute("data-limit");
+      var rate = opt.hasAttribute("data-commission") ? parseFloat(opt.getAttribute("data-commission")) : FEES.commissionPct;
 
       // Orders of `per` items; a final smaller order covers any remainder.
       var full = Math.floor(sold / per), rest = sold % per;
@@ -507,26 +544,32 @@
       if (rest) groups.push({ n: rest, count: 1 });
       var orders = full + (rest ? 1 : 0);
 
-      var siteCharges = 0, ebayCharges = 0, sales = 0;
+      var siteCharges = 0, ebayCharges = 0, sales = 0, commission = 0;
       groups.forEach(function (g) {
         var items = bid * g.n, shipping = g.n ? ship + extra * (g.n - 1) : 0;
         var payout = items + shipping, buyerPays = payout * (1 + tax);
-        var site = buyerPays * (FEES.cardPct + FEES.taxCalcPct) + FEES.cardFixed + payout * FEES.payoutPct;
+        var cut = items * rate;
+        var site = buyerPays * (FEES.cardPct + FEES.taxCalcPct) + FEES.cardFixed + (payout - cut) * FEES.payoutPct;
         var ebay = buyerPays * FEES.ebayPct + FEES.ebayFixed;
         siteCharges += site * g.count;
+        commission += cut * g.count;
         ebayCharges += ebay * g.count;
         sales += items * g.count;
       });
 
       var payoutCost = sold > 0 ? FEES.payoutMonthly : 0;
-      var siteTotal = siteCharges + plan + payoutCost, ebayTotal = ebayCharges;
+      var listed = Math.max(Math.round(num(el.listed, 0)), sold);
+      var ebayListing = Math.max(0, listed - FEES.ebayFreeListings) * FEES.ebayInsertion;
+      var siteTotal = commission + siteCharges + plan + payoutCost, ebayTotal = ebayCharges + ebayListing;
       var save = ebayTotal - siteTotal;
 
       $("r-orders").textContent = orders + (orders === 1 ? " order" : " orders");
       $("r-sales").textContent = money(sales);
+      $("r-commission").textContent = money(commission);
       $("r-site-charges").textContent = money(siteCharges);
       $("r-ebay-charges").textContent = money(ebayCharges);
       $("r-plan").textContent = money(plan);
+      $("r-ebay-listing").textContent = money(ebayListing);
       $("r-payout").textContent = money(payoutCost);
       $("r-site-total").textContent = money(siteTotal);
       $("r-ebay-total").textContent = money(ebayTotal);
@@ -548,9 +591,9 @@
       }
 
       var warn = $("r-warn");
-      if (limit && sold > Number(limit)) {
-        warn.textContent = "This plan allows up to " + limit + " new listings a month, fewer than the " + sold +
-          " items sold. Choose a larger plan to list that many.";
+      if (limit && listed > Number(limit)) {
+        warn.textContent = "This plan allows up to " + limit + " new listings a month, fewer than the " + listed +
+          " you list. Choose a larger plan to list that many.";
         warn.hidden = false;
       } else {
         warn.hidden = true;
@@ -683,19 +726,19 @@
 <section id="founding">
   <div class="wrap">
     <p class="eyebrow founding-eyebrow">Founding sellers</p>
-    <h2>Pay for a year up front, get a third off</h2>
-    <p>The first sellers to join can lock in a year of a paid plan at a founding price. It helps cover the cost of opening the site, and it is the lowest price the plans will ever be.</p>
+    <h2>A third off your first year, and no commission</h2>
+    <p>The first sellers to join can lock in a year of a paid plan at a founding price, with <strong>no commission on anything they sell in that year</strong>. It helps cover the cost of opening the site, and it is the best deal the site will ever offer.</p>
     <p class="limit-pill">Only 50 founding places. When they are taken, the offer ends.</p>
     <div class="compare">
       <div class="card offer">
         <div class="label">Founding Collector</div>
         <div class="big">$80<span> / first year</span></div>
-        <p>Up to 300 new listings a month for 12 months. Usually $120.</p>
+        <p>Up to 300 new listings a month for 12 months, with no commission. Usually $120 plus 3% of each sale.</p>
       </div>
       <div class="card offer">
         <div class="label">Founding Dealer</div>
         <div class="big">$200<span> / first year</span></div>
-        <p>Unlimited new listings for 12 months. Usually $300.</p>
+        <p>Unlimited new listings for 12 months, with no commission. Usually $300 plus 3% of each sale.</p>
       </div>
     </div>
     <div class="banner">Nothing is charged now: say you are interested in the form below and we will email you before opening day to confirm.</div>
@@ -764,7 +807,7 @@
       <p class="eyebrow about-eyebrow">Who's behind it</p>
       <h2>Hi, I'm Ron Minor.</h2>
       <p>I've collected railroad slides for 35 years, mostly Burlington Northern, Chicago &amp; North Western, Union Pacific and BNSF across the Midwest. I live in Joplin, Missouri.</p>
-      <p>I built this site because selling $5 and $10 slides on general auction sites means giving up a big share of every sale in fees, and good railroad material gets lost among everything else. I wanted a marketplace made only for our hobby, where sellers keep what they earn and collectors can find exactly the road, era and location they are after.</p>
+      <p>I built this site because selling $5 and $10 slides on general auction sites means giving up a big share of every sale in fees, and good railroad material gets lost among everything else. I wanted a marketplace made only for our hobby, where sellers keep more of what they earn and collectors can find exactly the road, era and location they are after.</p>
       <p>Questions or ideas? Use the form below. I read every message myself.</p>
     </div>
   </div>
@@ -842,7 +885,7 @@
         <h3>What happens next</h3>
         <ul>
           <li>We reply by email with the opening date and how to set up your seller account.</li>
-          <li>Everyone starts on the free Starter plan with up to 50 listings a month, and moves up only if it works for them.</li>
+          <li>Everyone can start on the Starter plan: no monthly fee, up to 50 listings a month, and the same 3% commission on each sale. Move up only if it works for you.</li>
           <li>If you chose a founding offer, we confirm it by email before anything is charged. Founding places go to the first 50 sellers.</li>
           <li>No payment details are needed to register interest.</li>
         </ul>

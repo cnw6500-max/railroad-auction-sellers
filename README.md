@@ -52,7 +52,7 @@ Files with the same name are replaced; nothing else in the repository is touched
 - **Visitor counter:** Umami Cloud, script near the top of `index.html` (`data-website-id="5f79…"`). See visits and events (Interest form sent, Buyer sign-up, Calculator used, Badge download, Badge code copied) at https://cloud.umami.is. It only counts visits on `cnw6500-max.github.io`.
 - **Formspree form:** `var FORMSPREE_ID = "mrpppzpp";` — entries go to the email on that Formspree form.
 - **Badge link address:** `var SITE_URL = "..."` — the address the badge codes link to. Change it if the site moves to its own web address.
-- **Fee rates for the calculator:** the `var FEES = { ... }` block. Each rate has a comment saying what it is.
+- **Fee rates for the calculator:** the `var FEES = { ... }` block. Each rate has a comment saying what it is. The site commission (3%) is set per plan in the calculator's Plan list (`data-commission="0.03"`; founding plans use `0`); if the rate changes, also update the 3% figures in the cost sections, plan banner and founding offer.
 - **Founding prices:** search for `Founding Collector` and `Founding Dealer`. They appear in the offer cards, the form's drop-down and the calculator's plan list — change all three.
 
 Open `index.html` in Notepad to edit, save, then upload it again with the steps above.
