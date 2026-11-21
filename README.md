@@ -1,6 +1,6 @@
-# Railroad Collectibles Auction – Seller Overview
+# Trackside Bids – Seller Overview
 
-A one-page website version of the seller deck, hosted free on GitHub Pages.
+A one-page website version of the seller deck for Trackside Bids (tracksidebids.com), hosted free on GitHub Pages.
 
 - **Live site:** https://cnw6500-max.github.io/railroad-auction-sellers/
 - **Repository:** https://github.com/cnw6500-max/railroad-auction-sellers
@@ -49,7 +49,7 @@ Files with the same name are replaced; nothing else in the repository is touched
 - **Buyer sign-up:** the "For collectors" form at the bottom. Entries arrive through the same Formspree form, with the subject "Buyer interest" and `interest_type: Buyer` (seller entries say `Seller`). Both forms share Formspree's monthly entry limit.
 - **Visitor counter:** Umami Cloud, script near the top of `index.html` (`data-website-id="5f79…"`). See visits and events (Interest form sent, Buyer sign-up, Calculator used) at https://cloud.umami.is. It only counts visits on `cnw6500-max.github.io`.
 - **Formspree form:** `var FORMSPREE_ID = "mrpppzpp";` — entries go to the email on that Formspree form.
-- **Fee rates for the calculator:** the `var FEES = { ... }` block. Each rate has a comment saying what it is. The site commission (3%) is set per plan in the calculator's Plan list (`data-commission="0.03"`); if the rate changes, also update the 3% figures in the cost sections and plan banner.
+- **Fee rates for the calculator:** the `var FEES = { ... }` block. Each rate has a comment saying what it is. The site commission (currently none, 0) is set per plan in the calculator's Plan list (`data-commission="0"`); if a commission is added, also update the cost sections, the "no commission" wording and the plan banner.
 
 Open `index.html` in Notepad to edit, save, then upload it again with the steps above.
 
