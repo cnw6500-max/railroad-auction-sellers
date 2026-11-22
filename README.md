@@ -9,7 +9,7 @@ A one-page website version of the seller deck for Trackside Bids (tracksidebids.
 
 | File | What it is |
 |---|---|
-| `index.html` | The whole website: deck sections, savings calculator and interest forms |
+| `index.html` | The whole website: deck sections and interest forms |
 | `images/home-page.jpg` | Screenshot: site home page |
 | `images/listing-page.jpg` | Screenshot: auction listing page |
 | `images/listing-form.jpg` | Screenshot: listing form |
@@ -39,17 +39,15 @@ Files with the same name are replaced; nothing else in the repository is touched
 
 ## Check it worked
 
-- The menu bar shows: Costs · Plans · Calculator · The site · Getting paid · About · Contact
-- **Calculator:** with the example values it shows about **$73 a month** saved; change a number and it updates.
+- The menu bar shows: Costs · Plans · The site · Getting paid · About · Contact
 - **Contact:** the form at the bottom. Send yourself a test entry; it should arrive by email from Formspree.
 
 ## Settings you may want to change later (in `index.html`)
 
 - **About section:** search for `Hi, I'm Ron Minor` in `index.html` to edit the text; the initials in the circle are `RDM`.
 - **Buyer sign-up:** the "For collectors" form at the bottom. Entries arrive through the same Formspree form, with the subject "Buyer interest" and `interest_type: Buyer` (seller entries say `Seller`). Both forms share Formspree's monthly entry limit.
-- **Visitor counter:** Umami Cloud, script near the top of `index.html` (`data-website-id="5f79…"`). See visits and events (Interest form sent, Buyer sign-up, Calculator used) at https://cloud.umami.is. It only counts visits on `cnw6500-max.github.io`.
+- **Visitor counter:** Umami Cloud, script near the top of `index.html` (`data-website-id="5f79…"`). See visits and events (Interest form sent, Buyer sign-up) at https://cloud.umami.is. It only counts visits on `cnw6500-max.github.io`.
 - **Formspree form:** `var FORMSPREE_ID = "mrpppzpp";` — entries go to the email on that Formspree form.
-- **Fee rates for the calculator:** the `var FEES = { ... }` block. Each rate has a comment saying what it is. The site commission (currently none, 0) is set per plan in the calculator's Plan list (`data-commission="0"`); if a commission is added, also update the cost sections, the "no commission" wording and the plan banner.
 
 Open `index.html` in Notepad to edit, save, then upload it again with the steps above.
 

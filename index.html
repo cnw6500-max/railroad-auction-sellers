@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Trackside Bids – Railroad slide, negative and print auctions</title>
-<meta name="description" content="Trackside Bids: an auction site built only for railroad slides, negatives and prints. Free to list and no commission: you pay only the card processing charge, at cost. Far less than eBay takes.">
+<meta name="description" content="Trackside Bids: an auction site built only for railroad slides, negatives and prints. Free during the beta: no listing fees, no commission, and buyers pay you directly.">
 <!-- Visitor counter: Umami Cloud (cookie-free). Dashboard at https://cloud.umami.is -->
 <script defer src="https://cloud.umami.is/script.js" data-website-id="5f7910ae-1b97-40fc-9461-1447aa01fc8d" data-domains="cnw6500-max.github.io"></script>
 <style>
@@ -153,40 +153,6 @@
   thead th { background: var(--head); }
   tr.total td { background: var(--head); font-weight: 700; }
 
-  /* savings calculator */
-  #calculator { border-top: 1px solid var(--line); }
-  .calc { display: grid; grid-template-columns: 1fr 1.1fr; gap: 28px; align-items: start; }
-  .calc-inputs {
-    background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 24px;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 14px 16px;
-  }
-  .calc-inputs .full { grid-column: 1 / -1; }
-  .calc-inputs label { display: block; font-weight: 600; font-size: .88rem; margin-bottom: 5px; }
-  .calc-inputs .hint { display: block; font-weight: 400; font-size: .78rem; color: var(--muted); margin-top: 4px; }
-  .money { position: relative; }
-  .money::before { content: "$"; position: absolute; left: 11px; top: 50%; transform: translateY(-50%); color: var(--muted); }
-  .money input { padding-left: 24px !important; }
-  .pct { position: relative; }
-  .pct::after { content: "%"; position: absolute; right: 11px; top: 50%; transform: translateY(-50%); color: var(--muted); }
-  .calc-inputs input, .calc-inputs select {
-    width: 100%; font: inherit; font-size: 1rem; color: var(--ink); background: #fff;
-    border: 1px solid #c4cada; border-radius: 6px; padding: 9px 11px;
-  }
-  .calc-inputs input:focus, .calc-inputs select:focus { outline: 2px solid var(--navy); outline-offset: 1px; border-color: var(--navy); }
-  .calc-reset {
-    font: inherit; font-size: .88rem; background: none; border: 0; color: var(--navy);
-    text-decoration: underline; cursor: pointer; padding: 0; justify-self: start;
-  }
-  .calc-results { display: grid; gap: 16px; }
-  .savings { background: var(--navy); color: #fff; border-radius: 10px; padding: 24px; }
-  .savings .label { color: #c9d2ee; font-weight: 600; }
-  .savings .big { color: #fff; margin: 4px 0 6px; font-variant-numeric: tabular-nums; }
-  .savings .big span { font-size: 1.1rem; font-weight: 600; color: #c9d2ee; }
-  .savings .sub { color: var(--gold); font-weight: 700; font-size: 1.1rem; }
-  .savings.neg .big { color: #ffd2c8; }
-  .calc-warn { background: #fff6e0; border-left: 4px solid var(--gold); padding: 12px 16px; border-radius: 6px; font-size: .92rem; margin: 0; }
-  .calc-warn[hidden] { display: none; }
-
   /* feature with screenshot */
   .feature { display: grid; grid-template-columns: 1fr 1.35fr; gap: 44px; align-items: center; }
   .feature.flip > :first-child { order: 2; }
@@ -281,7 +247,6 @@
     <ul>
       <li><a href="#costs">Costs</a></li>
       <li><a href="#plans">Plans</a></li>
-      <li><a href="#calculator">Calculator</a></li>
       <li><a href="#site">The site</a></li>
       <li><a href="#paid">Getting paid</a></li>
       <li><a href="#about">About</a></li>
@@ -294,7 +259,7 @@
   <div class="wrap">
     <p class="eyebrow">Trackside Bids · tracksidebids.com</p>
     <h1>Sell your slides for less.<br>Keep more of every sale.</h1>
-    <p class="lede">An auction site built only for railroad slides, negatives and prints. <strong>Listing is always free, and there is no commission.</strong> You pay only the card processing charge on what sells, at cost: far less than eBay takes.</p>
+    <p class="lede">An auction site built only for railroad slides, negatives and prints. <strong>Free during the beta: no listing fees and no commission.</strong> The winner pays you directly, so you keep the whole sale.</p>
     <a class="btn" href="#join">Register your interest</a>
     <a class="hero-link" href="#buyers">Collector? Get notified when it opens →</a>
     <p class="small">A walk-through for sellers · Screens show sample listings</p>
@@ -308,8 +273,8 @@
     <div class="compare">
       <div class="card good">
         <div class="label">On this site</div>
-        <div class="big">61¢</div>
-        <p>No commission. Only Stripe's card processing, passed on at cost with nothing added.</p>
+        <div class="big">$0</div>
+        <p>No listing fee, no commission and no monthly charge during the beta. The buyer pays you directly; the only fee is your own payment method's, if any.</p>
       </div>
       <div class="card bad">
         <div class="label">On eBay, estimated</div>
@@ -317,7 +282,7 @@
         <p>A percentage of the item, the shipping and the sales tax, plus 30 cents an order.</p>
       </div>
     </div>
-    <p class="note">$6 winning bid, $2 shipping, 7% sales tax: about 58% less than eBay. eBay estimated at 13.6% plus 30 cents from third-party fee guides, October 2026.</p>
+    <p class="note">$6 winning bid, $2 shipping, 7% sales tax. eBay estimated at 13.6% plus 30 cents an order from third-party fee guides, October 2026. Payment methods set their own fees; PayPal Goods &amp; Services is recommended for its buyer and seller protection.</p>
 
     <div class="free-listing">
       <div class="free-badge">$0</div>
@@ -334,7 +299,7 @@
 <!-- Plans -->
 <section id="plans" class="alt">
   <div class="wrap">
-    <h2>Three plans, no commission</h2>
+    <h2>Three plans, all free during the beta</h2>
     <div class="plans">
       <div class="plan">
         <h3>Starter</h3>
@@ -343,270 +308,19 @@
       </div>
       <div class="plan featured">
         <h3>Collector</h3>
-        <div class="price">$10<span> / month</span></div>
+        <div class="price">Free<span> in the beta, then $10 / month</span></div>
         <p>Up to 300 new listings a month. For working through a collection.</p>
       </div>
       <div class="plan">
         <h3>Dealer</h3>
-        <div class="price">$25<span> / month</span></div>
+        <div class="price">Free<span> in the beta, then $25 / month</span></div>
         <p>Unlimited new listings. For high-volume sellers.</p>
       </div>
     </div>
-    <div class="banner">Every plan: free to list and no commission on what you sell. Card charges passed on at cost with nothing added, sales tax collected for you, and bidding is always free for buyers.</div>
-    <p class="note">Prices are per month. Paid plans can be changed or cancelled at any time.</p>
+    <div class="banner">Every plan: free to list and no commission on what you sell. Buyers pay you directly, and bidding is always free.</div>
+    <p class="note">Plans set how many items you can list each month. No plan is charged during the beta, and notice will be given before any charge begins.</p>
   </div>
 </section>
-
-<!-- What comes out of a sale -->
-<section>
-  <div class="wrap">
-    <h2>What comes out of a sale</h2>
-    <div class="split">
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th>Buyer pays $8.56 for a $6 slide</th><th class="num">Amount</th></tr></thead>
-          <tbody>
-            <tr><td>Site commission</td><td class="num">$0.00</td></tr>
-            <tr><td>Card processing, 2.9% plus 30 cents</td><td class="num">$0.55</td></tr>
-            <tr><td>Sales tax calculation, 0.5%</td><td class="num">$0.04</td></tr>
-            <tr><td>Payout charge, 0.25%</td><td class="num">$0.02</td></tr>
-            <tr class="total"><td>Deducted from your payout</td><td class="num">$0.61</td></tr>
-            <tr><td>You keep, of the $8.00 bid and shipping</td><td class="num">$7.39</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div>
-        <h3>You keep the shipping in full</h3>
-        <p>The site takes no commission. All that comes out is what Stripe, the payment processor, charges to handle the sale, passed on at cost.</p>
-        <p>Sales tax is added on top for the buyer. It never comes out of your money.</p>
-        <p>In a month you are paid out, $2.25 is deducted once for Stripe's account and payout cost.</p>
-      </div>
-    </div>
-    <p class="note">$6 winning bid, $2 shipping, 7% sales tax. Stripe's published rates, October 2026; if they change, the amounts passed on change with them.</p>
-  </div>
-</section>
-
-<!-- Typical month -->
-<section class="alt">
-  <div class="wrap">
-    <h2>A typical month: half what eBay takes</h2>
-    <div class="split">
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th>250 listed, 100 sold at $6</th><th class="num">This site</th><th class="num">eBay, est.</th></tr></thead>
-          <tbody>
-            <tr><td>Site commission</td><td class="num">$0</td><td class="num">–</td></tr>
-            <tr><td>Card and Stripe charges on 100 sales</td><td class="num">$61</td><td class="num">$146</td></tr>
-            <tr><td>Monthly plan</td><td class="num">$10</td><td class="num">$0</td></tr>
-            <tr><td>Payout cost</td><td class="num">$2.25</td><td class="num">$0</td></tr>
-            <tr class="total"><td>Total for the month</td><td class="num">$73</td><td class="num">$146</td></tr>
-            <tr><td>Share of $600 in slide sales</td><td class="num">12%</td><td class="num">24%</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div>
-        <h3>What the comparison leaves out</h3>
-        <p>eBay's fee buys access to its buyers. This site is new and is building its own audience of railroad collectors.</p>
-        <p>About 10 of the 12 points here is card processing, which any site selling $6 items by card has to pay. The rest is the plan and Stripe's payout cost; the site takes no commission.</p>
-      </div>
-    </div>
-    <p class="note">Collector plan, $2 shipping, 7% sales tax, each slide paid for separately. eBay estimated at 13.6% plus 30 cents an order with no store, from third-party fee guides, October 2026.</p>
-  </div>
-</section>
-
-<!-- Savings calculator -->
-<section id="calculator">
-  <div class="wrap">
-    <h2>Work out your own savings</h2>
-    <p>Enter what you usually sell. The figures update as you type.</p>
-    <div class="calc">
-      <form class="calc-inputs" id="calc-form" onsubmit="return false">
-        <div>
-          <label for="c-bid">Average winning bid</label>
-          <div class="money"><input type="number" id="c-bid" min="0" step="0.01" inputmode="decimal" value="6"></div>
-        </div>
-        <div>
-          <label for="c-listed">Items listed a month</label>
-          <input type="number" id="c-listed" min="0" step="1" inputmode="numeric" value="250">
-          <span class="hint">Free here; eBay charges 35¢ each after 250</span>
-        </div>
-        <div>
-          <label for="c-sold">Items sold a month</label>
-          <input type="number" id="c-sold" min="0" step="1" inputmode="numeric" value="100">
-        </div>
-        <div>
-          <label for="c-ship">Shipping charged</label>
-          <div class="money"><input type="number" id="c-ship" min="0" step="0.01" inputmode="decimal" value="2"></div>
-          <span class="hint">For the first item in an order</span>
-        </div>
-        <div>
-          <label for="c-extra">Each extra item adds</label>
-          <div class="money"><input type="number" id="c-extra" min="0" step="0.01" inputmode="decimal" value="0"></div>
-          <span class="hint">Shipping for each additional item</span>
-        </div>
-        <div>
-          <label for="c-per">Items per order</label>
-          <input type="number" id="c-per" min="1" step="1" inputmode="numeric" value="1">
-          <span class="hint">How many items a buyer usually pays for together</span>
-        </div>
-        <div>
-          <label for="c-tax">Sales tax</label>
-          <div class="pct"><input type="number" id="c-tax" min="0" max="20" step="0.1" inputmode="decimal" value="7"></div>
-        </div>
-        <div class="full">
-          <label for="c-plan">Plan</label>
-          <select id="c-plan">
-            <option value="0" data-limit="50" data-commission="0">Starter – no monthly fee, up to 50 listings a month</option>
-            <option value="10" data-limit="300" data-commission="0" selected>Collector – $10 a month, up to 300 listings</option>
-            <option value="25" data-limit="" data-commission="0">Dealer – $25 a month, unlimited listings</option>
-          </select>
-        </div>
-        <button type="button" class="calc-reset full" id="c-reset">Reset to the example above</button>
-      </form>
-
-      <div class="calc-results" aria-live="polite">
-        <div class="savings" id="r-box">
-          <div class="label" id="r-label">You would save about</div>
-          <div class="big" id="r-month">$73</div>
-          <div class="sub" id="r-year">$876 a year</div>
-        </div>
-        <p class="calc-warn" id="r-warn" hidden></p>
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Each month</th><th class="num">This site</th><th class="num">eBay, est.</th></tr></thead>
-            <tbody>
-              <tr><td>Site commission</td><td class="num" id="r-commission"></td><td class="num">–</td></tr>
-              <tr><td>Card and Stripe charges on <span id="r-orders">100 orders</span></td><td class="num" id="r-site-charges"></td><td class="num" id="r-ebay-charges"></td></tr>
-              <tr><td>Monthly plan</td><td class="num" id="r-plan"></td><td class="num">$0</td></tr>
-              <tr><td>Listing fees</td><td class="num">$0</td><td class="num" id="r-ebay-listing"></td></tr>
-              <tr><td>Payout cost</td><td class="num" id="r-payout"></td><td class="num">$0</td></tr>
-              <tr class="total"><td>Total for the month</td><td class="num" id="r-site-total"></td><td class="num" id="r-ebay-total"></td></tr>
-              <tr><td>Share of <span id="r-sales">$600</span> in sales</td><td class="num" id="r-site-share"></td><td class="num" id="r-ebay-share"></td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-    <p class="note">This site: no commission, Stripe's card processing (2.9% plus 30 cents an order), sales tax calculation (0.5%) and payout charge (0.25%) at cost, the plan price, and $2.25 for a month with a payout. Listing is free here. eBay estimated at 13.6% of the order total plus 30 cents an order with no store, and 35¢ for each listing after 250 a month, from third-party fee guides, October 2026. Sales tax is charged on the item and shipping. Estimates only.</p>
-  </div>
-</section>
-
-<script>
-  // Fee rates used by the savings calculator. Update here if Stripe or eBay change their fees.
-  var FEES = {
-    commissionPct: 0,      // the site's commission on the winning bid (plans set their own rate in the Plan list)
-    cardPct: 0.029,        // Stripe card processing, share of what the buyer pays
-    cardFixed: 0.30,       // Stripe card processing, per order
-    taxCalcPct: 0.005,     // Stripe Tax, share of what the buyer pays
-    payoutPct: 0.0025,     // Stripe payout charge, share of the seller's payout
-    payoutMonthly: 2.25,   // Stripe account and payout cost, per month with a payout
-    ebayPct: 0.136,        // eBay estimate, share of item + shipping + tax
-    ebayFixed: 0.30,       // eBay estimate, per order
-    ebayFreeListings: 250, // eBay listings a month with no insertion fee
-    ebayInsertion: 0.35    // eBay insertion fee for each listing after those
-  };
-
-  (function () {
-    var ids = ["bid", "listed", "sold", "ship", "extra", "per", "tax", "plan"];
-    var el = {};
-    ids.forEach(function (k) { el[k] = document.getElementById("c-" + k); });
-    var defaults = {};
-    ids.forEach(function (k) { defaults[k] = el[k].value; });
-    function $(id) { return document.getElementById(id); }
-
-    function num(input, min) {
-      var v = parseFloat(input.value);
-      return isFinite(v) && v >= min ? v : min;
-    }
-    function money(v) {
-      var neg = v < 0; v = Math.abs(v);
-      var s = v >= 1000 ? Math.round(v).toLocaleString("en-US")
-            : v >= 100 ? String(Math.round(v))
-            : v.toFixed(2).replace(/\.00$/, "");
-      return (neg ? "−$" : "$") + s;
-    }
-    function pct(v) { return isFinite(v) ? Math.round(v * 100) + "%" : "–"; }
-
-    function update() {
-      var bid = num(el.bid, 0), sold = Math.round(num(el.sold, 0)), ship = num(el.ship, 0);
-      var extra = num(el.extra, 0), per = Math.max(1, Math.round(num(el.per, 1))), tax = num(el.tax, 0) / 100;
-      var opt = el.plan.options[el.plan.selectedIndex];
-      var plan = parseFloat(opt.value), limit = opt.getAttribute("data-limit");
-      var rate = opt.hasAttribute("data-commission") ? parseFloat(opt.getAttribute("data-commission")) : FEES.commissionPct;
-
-      // Orders of `per` items; a final smaller order covers any remainder.
-      var full = Math.floor(sold / per), rest = sold % per;
-      var groups = [];
-      if (full) groups.push({ n: per, count: full });
-      if (rest) groups.push({ n: rest, count: 1 });
-      var orders = full + (rest ? 1 : 0);
-
-      var siteCharges = 0, ebayCharges = 0, sales = 0, commission = 0;
-      groups.forEach(function (g) {
-        var items = bid * g.n, shipping = g.n ? ship + extra * (g.n - 1) : 0;
-        var payout = items + shipping, buyerPays = payout * (1 + tax);
-        var cut = items * rate;
-        var site = buyerPays * (FEES.cardPct + FEES.taxCalcPct) + FEES.cardFixed + (payout - cut) * FEES.payoutPct;
-        var ebay = buyerPays * FEES.ebayPct + FEES.ebayFixed;
-        siteCharges += site * g.count;
-        commission += cut * g.count;
-        ebayCharges += ebay * g.count;
-        sales += items * g.count;
-      });
-
-      var payoutCost = sold > 0 ? FEES.payoutMonthly : 0;
-      var listed = Math.max(Math.round(num(el.listed, 0)), sold);
-      var ebayListing = Math.max(0, listed - FEES.ebayFreeListings) * FEES.ebayInsertion;
-      var siteTotal = commission + siteCharges + plan + payoutCost, ebayTotal = ebayCharges + ebayListing;
-      var save = ebayTotal - siteTotal;
-
-      $("r-orders").textContent = orders + (orders === 1 ? " order" : " orders");
-      $("r-sales").textContent = money(sales);
-      $("r-commission").textContent = money(commission);
-      $("r-site-charges").textContent = money(siteCharges);
-      $("r-ebay-charges").textContent = money(ebayCharges);
-      $("r-plan").textContent = money(plan);
-      $("r-ebay-listing").textContent = money(ebayListing);
-      $("r-payout").textContent = money(payoutCost);
-      $("r-site-total").textContent = money(siteTotal);
-      $("r-ebay-total").textContent = money(ebayTotal);
-      $("r-site-share").textContent = sales ? pct(siteTotal / sales) : "–";
-      $("r-ebay-share").textContent = sales ? pct(ebayTotal / sales) : "–";
-
-      var box = $("r-box");
-      if (save >= 0) {
-        box.classList.remove("neg");
-        $("r-label").textContent = "You would save about";
-        $("r-month").innerHTML = money(save) + "<span> a month</span>";
-        $("r-year").textContent = money(save * 12) + " a year";
-      } else {
-        box.classList.add("neg");
-        $("r-label").textContent = "At these numbers this site costs more, by about";
-        $("r-month").innerHTML = money(-save) + "<span> a month</span>";
-        $("r-year").textContent = plan > 0 ? "Try the free Starter plan at this volume"
-                                           : "At very low volume the $2.25 monthly payout cost is more than the saving";
-      }
-
-      var warn = $("r-warn");
-      if (limit && listed > Number(limit)) {
-        warn.textContent = "This plan allows up to " + limit + " new listings a month, fewer than the " + listed +
-          " you list. Choose a larger plan to list that many.";
-        warn.hidden = false;
-      } else {
-        warn.hidden = true;
-      }
-    }
-
-    var tracked = false;
-    function used() { if (!tracked && window.umami) { tracked = true; umami.track("Calculator used"); } }
-    ids.forEach(function (k) { el[k].addEventListener("input", update); el[k].addEventListener("change", update); el[k].addEventListener("change", used); });
-    $("c-reset").addEventListener("click", function () {
-      ids.forEach(function (k) { el[k].value = defaults[k]; });
-      update();
-    });
-    update();
-  })();
-</script>
 
 <!-- Marketplace -->
 <section id="site">
@@ -670,17 +384,16 @@
     <div class="compare">
       <div class="card bad">
         <div class="label">Five $6 slides paid for one at a time</div>
-        <div class="big">$3.05</div>
-        <p>in card charges, because the 30-cent part is paid five times. The buyer also pays shipping five times.</p>
+        <div class="big">5 payments</div>
+        <p>and five shipping charges for the buyer, and five packages for you.</p>
       </div>
       <div class="card good">
-        <div class="label">The same five paid for together</div>
-        <div class="big">$1.55</div>
-        <p>about half, because the 30 cents is paid once. The buyer pays one shipping charge and you send one package.</p>
+        <div class="label">The same five won close together</div>
+        <div class="big">1 payment</div>
+        <p>Wins from one seller that end within 36 hours go on one invoice: one payment to you, one shipping charge, one package.</p>
       </div>
     </div>
     <div class="banner">You choose what each additional item adds to the shipping, from nothing upward.</div>
-    <p class="note">Five $6 slides from one seller, $2 shipping on the first and nothing added for the rest, 7% sales tax. Figures rounded.</p>
   </div>
 </section>
 
@@ -690,15 +403,15 @@
     <div>
       <h2>How you get paid</h2>
       <ol class="steps">
-        <li>The buyer pays the site by card within 4 days.</li>
-        <li>We email you the shipping address. Do not ship before then.</li>
+        <li>You add how buyers should pay you, for example your PayPal address.</li>
+        <li>The winner pays you directly within 4 days and sends you their shipping address through the site.</li>
+        <li>You check the money arrived and choose “Payment received”. Do not ship before then.</li>
         <li>You ship and enter the carrier and tracking number.</li>
-        <li>Your payout is released when the buyer confirms receipt, or 7 days after you mark it shipped.</li>
-        <li>Stripe deposits it in your bank account.</li>
+        <li>The buyer confirms receipt and rates the sale.</li>
       </ol>
     </div>
     <figure>
-      <img src="images/seller-dashboard.jpg" alt="Seller dashboard listing recent sales with payout status" width="1444" height="902" loading="lazy">
+      <img src="images/seller-dashboard.jpg" alt="Seller dashboard listing recent sales" width="1444" height="902" loading="lazy">
       <figcaption>A seller's dashboard on the working site, with sample sales.</figcaption>
     </figure>
   </div>
@@ -709,12 +422,12 @@
   <div class="wrap">
     <h2>What the site takes care of</h2>
     <div class="grid3">
-      <div class="card"><h3>Sales tax</h3><p>Charged to the buyer at checkout and sent to the states by the site, not by you.</p></div>
+      <div class="card"><h3>Invoices</h3><p>Each winner sees what they owe you, shipping included, with your payment instructions.</p></div>
       <div class="card"><h3>Winners who do not pay</h3><p>A reminder, then an offer to the next bidder. Three misses blocks a bidder.</p></div>
-      <div class="card"><h3>Problems with an order</h3><p>A buyer's report goes to the site, which reviews it and decides on a refund.</p></div>
+      <div class="card"><h3>Problems with an order</h3><p>A buyer's report goes to you and to the site, which reviews it and acts on sellers who do not deliver.</p></div>
       <div class="card"><h3>Your reputation</h3><p>Buyers leave star ratings that show on your seller page and on every listing.</p></div>
       <div class="card"><h3>Bringing bidders back</h3><p>Emails for new listings that match an alert, outbid notices and ending-soon reminders.</p></div>
-      <div class="card"><h3>Your records</h3><p>Each sale on your dashboard shows the price, the charges and your payout.</p></div>
+      <div class="card"><h3>Your records</h3><p>Each sale on your dashboard shows the price, the buyer, payment and shipping.</p></div>
     </div>
   </div>
 </section>
@@ -797,7 +510,7 @@
         <h3>What happens next</h3>
         <ul>
           <li>We reply by email with the opening date and how to set up your seller account.</li>
-          <li>Everyone can start on the Starter plan: no monthly fee, up to 50 listings a month, and no commission on any sale. Move up only if it works for you.</li>
+          <li>Selling is free during the beta: no listing fees, no commission and no monthly charge. Buyers pay sellers directly.</li>
           <li>No payment details are needed to register interest.</li>
         </ul>
       </div>
